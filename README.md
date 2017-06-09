@@ -1,10 +1,10 @@
-![GNUsocial Autpost Wordpress Plugin banner](https://raw.githubusercontent.com/L1am0/gnusocial_wordpress_autopost/master/graphics/banner.png)
+![Mastodon Autpost Wordpress Plugin banner](https://raw.githubusercontent.com/L1am0/mastodon_wordpress_autopost/master/graphics/banner.png)
 
 # Mastodon Wordpress Autopost Plugin
 A  Wordpress plugin that automatically posts your new articles to Mastodon
 
 ## Get the Plugin
-You can install the current stable version via the [Wordpress Plugin Repository](https://wordpress.org/plugins/gnusocial-autopost/)
+You can install the current stable version via the [Wordpress Plugin Repository](https://wordpress.org/plugins/autopost-to-mastodon/)
 
 [How to install a Wordpress plugin via the Plugin Repository](http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/)
 
