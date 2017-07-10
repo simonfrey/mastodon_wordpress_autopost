@@ -25,4 +25,7 @@
 
 //Published Post Notification with actually sending the post
     require("publish_post_notification.php");
+    
+    global $mastodon_post_handler;
+    $mastodon_post_handler = new mastodon_post_handler();
 ?>

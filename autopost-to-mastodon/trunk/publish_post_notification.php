@@ -2,6 +2,25 @@
 //Wordpress Security function
 	defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
+class mastodon_post_handler{
+
+	//Setup the api_handöer
+		function __construct() {
+	   		// //Add wordpress hook
+		   	 	add_action( 'publish_post', array(&$this, 'mastodon_post_published_notification'), 10, 2 );
+		   		add_action( 'admin_notices', array(&$this, 'post_send') );
+
+	   	}
+	//Form the success message
+		function post_send() {
+			if(get_post_meta( get_the_ID(), 'mastodonAutopostNotifiePostSend', true ) == true){
+			echo '<div class="notice notice-success is-dismissible">
+	       	 		<p>Tooted to Mastodon!</p>
+	    		</div>';
+		}
+	}	
+	
+
 // Set up a post published notification
     function mastodon_post_published_notification( $ID, $post ) {
     	//Only publish on new post or if the setting for publishing updates is set
@@ -32,10 +51,12 @@
 
 				//Actually send the post
 					$mastodon_api->post_statuses($parameters);
+
+			//Notfiy user about toot
+				update_post_meta( $ID, 'mastodonAutopostNotifiePostSend', true);
     	}
     }
 
-//Register Publish Post Action
-    add_action( 'publish_post', 'mastodon_post_published_notification', 10, 2 );
 
+}
 ?>
