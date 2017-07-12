@@ -198,7 +198,23 @@
     add_action('admin_menu', 'mastodon_menu');
 
 
-   
+//Shortcut to settings page
+    add_filter('plugin_action_links', 'mastodon_autopost_menu_shortcut', 10, 2);
+
+function mastodon_autopost_menu_shortcut($links, $file) {
+  
+
+    if (is_admin()) {
+        // The "page" query string value must be equal to the slug
+        // of the Settings admin page we defined earlier, which in
+        // this case equals "myplugin-settings".
+        $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">Settings</a>';
+        array_unshift($links, $settings_link);
+    }
+
+    return $links;
+}
+
 
 
 
