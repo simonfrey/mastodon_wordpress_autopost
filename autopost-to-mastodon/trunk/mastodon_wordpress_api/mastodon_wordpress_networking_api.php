@@ -697,11 +697,11 @@ class mastodon_wordpress_networking_api {
 			$mime_type = mime_content_type($file_path);
 
 			$cf = curl_file_create($file_path,$mime_type,'file');
-			$parameters[CURLOPT_POSTFIELDS]['file'] = $cf;
+			$parameters[CURLOPT_POSTFIELDS]['file'] = $file_path;
 		}
 
 		$response = $this->get_content_curl($url,$parameters);
-		return $response;
+		return $response['html'];
 	}
 
 	/**

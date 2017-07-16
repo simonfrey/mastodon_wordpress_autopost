@@ -15,7 +15,7 @@ class mastodon_post_handler{
 		function post_send() {
 			if(get_post_meta( get_the_ID(), 'mastodonAutopostNotifiePostSend', true ) == true){
 				echo '<div class="notice notice-success is-dismissible">
-	       	 		<p>Tooted to Mastodon!</p>
+	       	 		<p>'.esc_html__('Tooted to Mastodon!', 'mastodon-autopost-TD'). '</p>
 	    		</div>';
 	    		update_post_meta( get_the_ID(), 'mastodonAutopostNotifiePostSend', false);
 			}
@@ -41,14 +41,43 @@ class mastodon_post_handler{
 			//Super Basic Posting
 				//Login FU
 				    $mastodon_api->set_url($url);
-					$mastodon_api->create_app('Wordpress Autopost',null,$url,$url);
+					$mastodon_api->create_app('Wordpress Mastodon Autopost',null,$url,$url);
 					$mastodon_api->set_client($mastodon_api->get_client_id(),$mastodon_api->get_client_secret());
 					$mastodon_api->login($email,$password);
 					$mastodon_api->set_token($mastodon_api->get_access_token(),$mastodon_api->get_token_type());
 
 				//Craft the Post
+				//Depending of the set post format in settings
+					$post_format = 0;
 					$parameters = array();
-					$parameters['status'] = $title . "  " . $permalink;
+
+					switch ($post_format) {
+						case 1:
+							//Title Link and Image
+								if ( has_post_thumbnail($ID) ){
+       								//Get Image
+       									$imageURL = wp_get_attachment_image_url( get_post_thumbnail_id($ID), 'large' ); 
+        							
+         							//Upload image 
+        								$imageData = $mastodon_api->media($imageURL);
+ 
+									$var_info = print_r($imageData, true);
+
+        							//Set image data to post
+        								$media_ids = array($imageData['id']);
+        								$parameters['media_ids'] = $media_ids;
+
+        								$parameters['status'] = $var_info . $title . " " . $permalink;
+
+        						}
+
+							break;
+						
+						default:
+							//Only title and link
+								$parameters['status'] = $title . "  " . $permalink;
+								break;
+					}
 
 				//Actually send the post
 					$mastodon_api->post_statuses($parameters);

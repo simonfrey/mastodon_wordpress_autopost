@@ -39,7 +39,8 @@ The plugin never transmits any data to me, or anyone else than the gnusocial nod
 1. Mastodon Autopost settings page
  
 == Changelog ==
- 
+= 1.0.1 & 1.0.1.1 =
+*	Show notfication if post gets tooted
 = 1.0 =
 *	Inital Plugin
 *	New Functions: post on update, post only on publishing

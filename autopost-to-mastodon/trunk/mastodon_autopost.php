@@ -7,12 +7,17 @@
 * Author: L1am0
 * Author URI: http://www.l1am0.eu
 * License: GPL2
+* Text Domain: mastodon-autopost-TD
+* Domain Path: /languages
 */
 
 
 //Wordpress Security function
 	defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
+
+//Plugin internationalization hook
+   require("internationalization.php");
 
 //Get the mastodon api
     require("mastodon_wordpress_api/mastodon_wordpress_api.php");
@@ -28,4 +33,5 @@
 
     global $mastodon_post_handler;
     $mastodon_post_handler = new mastodon_post_handler();
+
 ?>
