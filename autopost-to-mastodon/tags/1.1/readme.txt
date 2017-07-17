@@ -34,7 +34,7 @@ Yes. Since version 1.1 you see a settings box in every post.
 
 = Does the plugin send you my login data? =
  
-The plugin never transmits any data to me, or anyone else than the mastodon node you set in the settings!
+The plugin never transmits any data to me, or anyone else than the gnusocial node you set in the settings!
  
 == Screenshots ==
  

@@ -3,7 +3,7 @@ Contributors: l1am0
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.1
+Stable tag: 1.0.1.5
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -30,19 +30,17 @@ Do you want to help translating this plugin in your language? Just contact me! T
  
 = Can I decide per post if I want to autopost it? =
  
-Yes. Since version 1.1 you see a settings box in every post.
+Not yet. This feature is planed for close future
 
 = Does the plugin send you my login data? =
  
-The plugin never transmits any data to me, or anyone else than the mastodon node you set in the settings!
+The plugin never transmits any data to me, or anyone else than the gnusocial node you set in the settings!
  
 == Screenshots ==
  
 1. Mastodon Autopost settings page
  
 == Changelog ==
-= 1.1 =
-*	Decide per post if you want to toot it to mastodon
 = 1.0.1 & 1.0.1.5 =
 *	Added easy method for internationalization (get_text)
 *	New translation: Deutsch

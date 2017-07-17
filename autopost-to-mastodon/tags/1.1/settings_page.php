@@ -187,7 +187,7 @@
                  // (sections are registered for "wporg", each field is registered to a specific section)
                     do_settings_sections( 'mastodon-settings-page' );
                  // output save settings button
-                    submit_button(esc_attr__('Save Settings', 'mastodon-autopost-TD'));
+                    submit_button( 'Save Settings' );
                  ?>
              </form>
          </div>

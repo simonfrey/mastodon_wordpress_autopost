@@ -25,9 +25,8 @@ class mastodon_post_handler{
 // Set up a post published notification
     function mastodon_post_published_notification( $ID, $post ) {
     	//Only publish on new post or if the setting for publishing updates is set
-       //if ((get_post_meta( $ID, 'autopost_this_post', true) == null || get_post_meta( $ID, 'autopost_this_post', true)) && ($post->post_date == $post->post_modified  || get_option('mastodon_post_on_update') == "1")){
-       if(get_post_meta( $ID, 'autopost_this_post', true) ||  (get_post_meta( $ID, 'autopost_this_post', true) == null && ($post->post_date == $post->post_modified  || get_option('mastodon_post_on_update') == "1"))){
-            		//Get Global API Object
+       if ( $post->post_date == $post->post_modified  || get_option('mastodon_post_on_update') == "1"){
+       		//Get Global API Object
 	       		global $mastodon_api;
        		
        		//Post Data 
@@ -82,12 +81,6 @@ class mastodon_post_handler{
 
 				//Actually send the post
 					$mastodon_api->post_statuses($parameters);
-
-				if(get_option('mastodon_post_on_update') == "1"){
-					update_post_meta( $ID, 'mastodonAutopostPublishedNoRetoot', false);
-				}else{
-					update_post_meta( $ID, 'mastodonAutopostPublishedNoRetoot', true);
-				}
 
 			//Notfiy user about toot
 				update_post_meta( $ID, 'mastodonAutopostNotifiePostSend', true);

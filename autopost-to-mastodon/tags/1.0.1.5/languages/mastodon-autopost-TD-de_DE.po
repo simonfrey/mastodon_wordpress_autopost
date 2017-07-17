@@ -5,13 +5,6 @@
 msgid "Tooted to Mastodon!"
 msgstr "Auf Mastodon gepostet!"
 
-#: post_meta_box.php
-msgid "Mastodon Autopost"
-msgstr "Mastodon Autopost"
-
-msgid "Post to Mastodon"
-msgstr "Auf Mastdodon tooten"
-
 #: settings_page.php
 msgid "Server Settings"
 msgstr "Server Einstellungen"
@@ -42,6 +35,3 @@ msgstr "Mastodon Autopost Einstellungen"
 
 msgid "Settings"
 msgstr "Einstellungen"
-
-msgid "Save Settings"
-msgstr "Einstellungen speichern"
