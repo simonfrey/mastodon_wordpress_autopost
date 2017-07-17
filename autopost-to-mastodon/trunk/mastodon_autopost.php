@@ -7,7 +7,7 @@
 * Author: L1am0
 * Author URI: http://www.l1am0.eu
 * License: GPL2
-* Text Domain: mastodon-autopost-TD
+* Text Domain: autopost-to-mastodon
 * Domain Path: /languages
 */
 
