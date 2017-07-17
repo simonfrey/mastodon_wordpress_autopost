@@ -33,5 +33,3 @@
 
     global $mastodon_post_handler;
     $mastodon_post_handler = new mastodon_post_handler();
-
-?>
