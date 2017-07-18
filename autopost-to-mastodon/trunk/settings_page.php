@@ -13,7 +13,7 @@
         // register a new section in the "mastodon-settings-page" page
             add_settings_section(
                 'mastodon_server_settings_server_section',
-                esc_attr__('Server Settings', 'mastodon-autopost-TD'),
+                esc_attr__('Server Settings', 'autopost-to-mastodon'),
                 'mastodon_server_settings_description_func',
                 'mastodon-settings-page'
             );
@@ -21,7 +21,7 @@
                 // register a new field SERVER URL
                     add_settings_field(
                         'mastodon_server_url_field',
-                        esc_attr__('Server URL', 'mastodon-autopost-TD'),
+                        esc_attr__('Server URL', 'autopost-to-mastodon'),
                         'mastodon_server_url_func',
                         'mastodon-settings-page',
                         'mastodon_server_settings_server_section'
@@ -30,7 +30,7 @@
                 // register a new field email
                     add_settings_field(
                         'mastodon_email_field',
-                        esc_attr__('Email', 'mastodon-autopost-TD'),
+                        esc_attr__('Email', 'autopost-to-mastodon'),
                         'mastodon_email_func',
                         'mastodon-settings-page',
                         'mastodon_server_settings_server_section'
@@ -39,7 +39,7 @@
                 // register a new field PASSWORT
                     add_settings_field(
                         'mastodon_password_field',
-                        esc_attr__('Password', 'mastodon-autopost-TD'),
+                        esc_attr__('Password', 'autopost-to-mastodon'),
                         'mastodon_password_func',
                         'mastodon-settings-page',
                         'mastodon_server_settings_server_section'
@@ -48,7 +48,7 @@
         // register a new section in the "mastodon-settings-page" page
             add_settings_section(
                 'mastodon_behavior_section',
-                esc_attr__('', 'mastodon-autopost-TD'),
+                esc_attr__('', 'autopost-to-mastodon'),
                 'mastodon_behavior_description_func',
                 'mastodon-settings-page'
             );
@@ -56,7 +56,7 @@
                 // register a new field SERVER URL
                     add_settings_field(
                         'mastodon_post_on_update_field',
-                        esc_attr__('Also toot on Post Update', 'mastodon-autopost-TD'),
+                        esc_attr__('Also toot on Post Update', 'autopost-to-mastodon'),
                         'mastodon_post_on_update_func',
                         'mastodon-settings-page',
                         'mastodon_behavior_section'
@@ -71,7 +71,7 @@
 // Section Title
     function mastodon_server_settings_description_func()
     {
-        esc_html_e('Please provide the account details for the server. The server URL should include http or https and a trailing slash. e.g. http://mastodon.social/', 'mastodon-autopost-TD');
+        esc_html_e('Please provide the account details for the server. The server URL should include http or https and a trailing slash. e.g. http://mastodon.social/', 'autopost-to-mastodon');
     }
  
 // Server URL
@@ -120,7 +120,7 @@
 // Section Title
     function mastodon_behavior_description_func()
     {
-        esc_html_e('Configure the Plugin Behavior', 'mastodon-autopost-TD');
+        esc_html_e('Configure the Plugin Behavior', 'autopost-to-mastodon');
      }
  
 // Server URL
@@ -147,7 +147,7 @@
     function mastodon_menu() {
         add_options_page(
             "Mastodon Autopost Settings",
-            esc_attr__('Mastodon Autopost Settings', 'mastodon-autopost-TD'),
+            esc_attr__('Mastodon Autopost Settings', 'autopost-to-mastodon'),
             "administrator",
             "mastodon-settings-page", 
             'mastodon_settings_page'
@@ -208,7 +208,7 @@ function mastodon_autopost_menu_shortcut($links, $file) {
         // The "page" query string value must be equal to the slug
         // of the Settings admin page we defined earlier, which in
         // this case equals "myplugin-settings".
-        $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'mastodon-autopost-TD').'</a>';
+        $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a>';
         array_unshift($links, $settings_link);
     }
 

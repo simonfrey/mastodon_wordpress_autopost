@@ -15,7 +15,7 @@ class mastodon_post_handler{
 		function post_send() {
 			if(get_post_meta( get_the_ID(), 'mastodonAutopostNotifiePostSend', true ) == true){
 				echo '<div class="notice notice-success is-dismissible">
-	       	 		<p>'.esc_html__('Tooted to Mastodon!', 'mastodon-autopost-TD'). '</p>
+	       	 		<p>'.esc_html__('Tooted to Mastodon!', 'autopost-to-mastodon'). '</p>
 	    		</div>';
 	    		update_post_meta( get_the_ID(), 'mastodonAutopostNotifiePostSend', false);
 			}
