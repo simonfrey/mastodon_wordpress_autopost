@@ -12,11 +12,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr_FR\n"
 
-# German Translation
+# French Translation
 # for Mastdon Autopost Wordpress Plugin
 #: publish_post_notification.php
 msgid "Tooted to Mastodon!"
 msgstr "Envoyé sur Mastodon !"
+
+#: post_meta_box.php
+msgid "Mastodon Autopost"
+msgstr "Mastodon Autopost"
+
+msgid "Post to Mastodon"
+msgstr "Post to Mastodon"
 
 #: settings_page.php
 msgid "Server Settings"
@@ -53,3 +60,6 @@ msgstr "Paramètres de Mastodon Autopost"
 
 msgid "Settings"
 msgstr "Paramètres"
+
+msgid "Save Settings"
+msgstr "Enregistrer les paramètres"

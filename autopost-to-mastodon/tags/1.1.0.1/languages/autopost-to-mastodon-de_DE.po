@@ -1,0 +1,47 @@
+#German Translation
+#for Mastdon Autopost Wordpress Plugin
+
+#: publish_post_notification.php
+msgid "Tooted to Mastodon!"
+msgstr "Auf Mastodon gepostet!"
+
+#: post_meta_box.php
+msgid "Mastodon Autopost"
+msgstr "Mastodon Autopost"
+
+msgid "Post to Mastodon"
+msgstr "Auf Mastdodon tooten"
+
+#: settings_page.php
+msgid "Server Settings"
+msgstr "Server Einstellungen"
+
+msgid "Server URL"
+msgstr "Server URL"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Plugin Behavior"
+msgstr "Plugin Verhalten"
+
+msgid "Also toot on Post Update"
+msgstr "Auch bei einem Post Update tooten"
+
+msgid "Please provide the account details for the server. The server URL should include http or https and a trailing slash. e.g. http://mastodon.social/"
+msgstr "Bitte gib die Accountdaten des Servers ein. Die Server URL sollte auch http bzw. https und einen / am Ende enthalten. z.B. https://mastodon.social"
+
+msgid "Configure the Plugin Behavior"
+msgstr "Konfiguriere das Plugin Verhalten"
+
+msgid "Mastodon Autopost Settings"
+msgstr "Mastodon Autopost Einstellungen"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
