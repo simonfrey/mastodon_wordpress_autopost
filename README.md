@@ -33,6 +33,7 @@ Thanks to
 *	[Ricardo Gomez Angel](https://unsplash.com/search/wall?photo=2WCT3mg5zlY) - Background Image (CC0)
 *	[Flaticon](http://www.flaticon.com/free-icon/send_309395)- icon used in the logo (Flaticon Basis License)
 *	[Wikipedia](https://commons.wikimedia.org/wiki/File:msatodon-logo.svg) - Mastodon logo used in the logo (CC0)
+*	Bastien Ho & agentcobra - French translation and internationalization help
 
 ### Idea
 Special thanks to [Chris Riding](http://www.chrisridings.com/gnu-social-wordpress-plugin/) for inspiring this plugin with his original project (GPLv2)
