@@ -16,24 +16,24 @@ msgstr ""
 # for Mastdon Autopost Wordpress Plugin
 #: publish_post_notification.php
 msgid "Tooted to Mastodon!"
-msgstr "Envoyé sur Mastodon !"
+msgstr "Poueté sur Mastodon !"
 
 #: post_meta_box.php
 msgid "Mastodon Autopost"
 msgstr "Mastodon Autopost"
 
 msgid "Post to Mastodon"
-msgstr "Post to Mastodon"
+msgstr "Envoyé sur Mastodon"
 
 #: settings_page.php
 msgid "Server Settings"
-msgstr "Paramètre du serveur"
+msgstr "Paramètres du serveur"
 
 msgid "Server URL"
 msgstr "Adresse URL du serveur"
 
 msgid "Email"
-msgstr "Couriel"
+msgstr "Courriel"
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -42,7 +42,7 @@ msgid "Plugin Behavior"
 msgstr "Comportement du plugin"
 
 msgid "Also toot on Post Update"
-msgstr "Poster aussi lors des mise à jour d'article"
+msgstr "Poueter aussi lors des mise à jour d'article"
 
 msgid ""
 "Please provide the account details for the server. The server URL should "
