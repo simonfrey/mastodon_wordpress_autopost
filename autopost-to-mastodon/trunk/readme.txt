@@ -3,7 +3,7 @@ Contributors: l1am0
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.1.0.2
+Stable tag: 1.1.0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -41,6 +41,8 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 1. Mastodon Autopost settings page
  
 == Changelog ==
+= 1.1.0.3 =
+*	Added information to settings page
 = 1.1.0.2 =
 *	Updated translation: Français
 = 1.1.0.1 =

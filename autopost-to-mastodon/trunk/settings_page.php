@@ -10,6 +10,14 @@
             register_setting('mastodon', 'mastodon_password');
             register_setting('mastodon', 'mastodon_post_on_update');
      
+        // register a new section in the "gnusocial-settings-page" page
+            add_settings_section(
+                'mastodon_help_func',
+                '',
+                'mastodon_help_func',
+                'mastodon-settings-page'
+            );
+
         // register a new section in the "mastodon-settings-page" page
             add_settings_section(
                 'mastodon_server_settings_server_section',
@@ -63,6 +71,27 @@
                     );
     }
  
+/**
+ * Donate
+ */
+ 
+    function mastodon_help_func()
+    {
+        ?>
+        <div style="border:2px dashed #000; padding: 1%;">
+        <h2><?php esc_html_e('Do you like Mastodon Autopost?','autopost-to-mastodon');?></h2>
+
+       <h4><?php esc_html_e('Yes','autopost-to-mastodon');?>!</h4>
+       * <b><?php esc_html_e('Please rate the plugin','autopost-to-mastodon');?>!</b> <?php esc_html_e("For getting the word out, it's important to have good reviews",'autopost-to-mastodon');?>: <a href="https://wordpress.org/plugins/autopost-to-mastodon/" target="_blank"><?php esc_html_e('Rate on Wordpress.org','autopost-to-mastodon');?></a><br>
+       * <?php esc_html_e('Consider participating.(e.g. With translating it into another language)','autopost-to-mastodon');?>: <a href="https://github.com/L1am0/mastodon_wordpress_autopost" target="_blank"><?php esc_html_e('Mastodon Autopost is on Github','autopost-to-mastodon');?></a><br>
+       * <?php esc_html_e('Want to thank in another way?','autopost-to-mastodon');?>: <a href="http://l1am0.eu/donate.php?p=map" target="_blank"><?php esc_html_e('Buy me a Mate','autopost-to-mastodon');?></a>
+       <h4><?php esc_html_e('No','autopost-to-mastodon');?></h4>
+       * <?php esc_html_e('Please give me feedback how your experience could be improved','autopost-to-mastodon');?>: <a href="mailto:mastodonautopost@l1am0.eu">mastodonautopost@l1am0.eu</a>
+        </div>
+        <?php
+    }
+
+
  
 /**
  * Server Settings 

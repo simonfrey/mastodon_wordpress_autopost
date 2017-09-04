@@ -45,3 +45,36 @@ msgstr "Einstellungen"
 
 msgid "Save Settings"
 msgstr "Einstellungen speichern"
+
+msgid "Do you like Mastodon Autopost?"
+msgstr "Magst du Mastodon Autopost?"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Please rate the plugin"
+msgstr "Bitte bewerte das Plugin"
+
+msgid "For getting the word out, it's important to have good reviews"
+msgstr "Um mehr Verbreitung zu finden sind gute Bewertungen ausschlaggebend"
+
+msgid "Rate on Wordpress.org"
+msgstr "Bewerte auf Wordpress.org"
+
+msgid "Consider participating.(e.g. With translating it into another language)"
+msgstr "Hilf mit das Plugin zu verbessern (z.B. in andere Sprachen übersetzen)"
+
+msgid "Mastodon Autopost is on Github"
+msgstr "Mastodon Autopost ist auf Github zu finden"
+
+msgid "Want to thank in another way?"
+msgstr "Anderweitig beitragen"
+
+msgid "Buy me a Mate"
+msgstr "Gib mir ne Mate aus"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Please give me feedback how your experience could be improved"
+msgstr "Bitte gib mir Feedback wie das Plugin verbessert werden kann"
