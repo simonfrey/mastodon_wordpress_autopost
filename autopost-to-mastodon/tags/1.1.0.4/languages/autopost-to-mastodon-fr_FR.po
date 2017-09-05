@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"Last-Translator: agentcobra <agentcobra@free.fr>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+# French Translation
+# for Mastdon Autopost Wordpress Plugin
+#: publish_post_notification.php
+msgid "Tooted to Mastodon!"
+msgstr "Poueté sur Mastodon !"
+
+#: post_meta_box.php
+msgid "Mastodon Autopost"
+msgstr "Mastodon Autopost"
+
+msgid "Post to Mastodon"
+msgstr "Envoyé sur Mastodon"
+
+#: settings_page.php
+msgid "Server Settings"
+msgstr "Paramètres du serveur"
+
+msgid "Server URL"
+msgstr "Adresse URL du serveur"
+
+msgid "Email"
+msgstr "Courriel"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Plugin Behavior"
+msgstr "Comportement du plugin"
+
+msgid "Also toot on Post Update"
+msgstr "Poueter aussi lors des mise à jour d'article"
+
+msgid ""
+"Please provide the account details for the server. The server URL should "
+"include http or https and a trailing slash. e.g. http://mastodon.social/"
+msgstr ""
+"Merci de fournir les informations de connexion du serveur. L'adresse "
+"doit contenir http ou https et un slash. exemple : http://mastodon."
+"social/"
+
+msgid "Configure the Plugin Behavior"
+msgstr "Configurer le comportement du plugin"
+
+msgid "Mastodon Autopost Settings"
+msgstr "Paramètres de Mastodon Autopost"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Save Settings"
+msgstr "Enregistrer les paramètres"
+
+msgid "Aimez-vous GNUsocial Autopost?"
+msgstr "Magst du GNUsocial Autopost?"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "Please rate the plugin"
+msgstr "Veuillez noter le plugin"
+
+msgid "For getting the word out, it's important to have good reviews"
+msgstr "Pour faire passer le mot, il est important d'avoir de bonnes critiques."
+
+msgid "Rate on Wordpress.org"
+msgstr "Tarif sur Wordpress.org"
+
+msgid "Consider participating.(e.g. With translating it into another language)"
+msgstr "Envisagez de participer (p.ex. Avec la traduction dans une autre langue)"
+
+msgid "Mastodon Autopost is on Github"
+msgstr "Mastodon Autopost est sur Github"
+
+msgid "Vous voulez remercier autrement?"
+msgstr "Anderweitig beitragen"
+
+msgid "Buy me a Mate"
+msgstr "Achète-moi un thé"
+
+msgid "No"
+msgstr "No"
+
+msgid "Please give me feedback how your experience could be improved"
+msgstr "Veuillez me faire part de vos commentaires sur la façon dont votre expérience pourrait être améliorée"
