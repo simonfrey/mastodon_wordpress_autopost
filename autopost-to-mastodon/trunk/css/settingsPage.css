@@ -1,0 +1,22 @@
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px rgba(0,115,170,1)}
+  50% { box-shadow: 0 0 10px rgba(0,0,0,1)}
+  100% { box-shadow: 0 0 5px rgba(0,115,170,1)}
+}
+
+p.submit{
+	margin: 0;
+	padding: 0;
+}
+input[name=submit]{
+	float:left;
+}
+#testConnectionButton{
+	float: left;
+	margin-left: 5px;
+}
+
+#testConnectionMessage{
+	font-weight: bold;
+	padding: 5px;
+}

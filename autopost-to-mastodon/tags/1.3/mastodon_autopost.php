@@ -15,6 +15,7 @@
 //Wordpress Security function
 	defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
+
 //Plugin internationalization hook
    require("internationalization.php");
 
