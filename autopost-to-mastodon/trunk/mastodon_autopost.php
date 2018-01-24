@@ -3,7 +3,7 @@
 * Plugin Name: Mastodon Autopost
 * Plugin URI: https://github.com/L1am0/mastodon_wordpress_autopost
 * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
-* Version: 1.3
+* Version: 2.0
 * Author: L1am0
 * Author URI: http://www.l1am0.eu
 * License: GPL2
@@ -19,10 +19,15 @@
    require("internationalization.php");
 
 //Get the mastodon api
-    require("mastodon_wordpress_api/mastodon_wordpress_api.php");
+   require_once("MastodonOAuthPHP/theCodingCompany/HttpRequest.php");
+   require_once("MastodonOAuthPHP/theCodingCompany/oAuth.php");
+   require_once("MastodonOAuthPHP/theCodingCompany/Mastodon.php");
 
 	global $mastodon_api;
-	$mastodon_api = new mastodon_wordpress_networking_api();
+	$mastodon_api = new \theCodingCompany\Mastodon();
+
+//Enque js
+    require("enque_scripts.php");
 
 //Settings Page of Plugin
     require("settings_page.php");
@@ -35,3 +40,9 @@
 
     global $mastodon_post_handler;
     $mastodon_post_handler = new mastodon_post_handler();
+
+//Ajax response handler
+    require("ajax_handler.php");  
+
+//Show login error messages
+    require("generalNotices.php"); 

@@ -1,3 +1,6 @@
 [submodule "mastodon_wordpress_api"]
 	path = mastodon_wordpress_api
 	url = https://github.com/L1am0/mastodon_wordpress_api.git
+[submodule "autopost-to-mastodon/trunk/MastodonOAuthPHP"]
+	path = autopost-to-mastodon/trunk/MastodonOAuthPHP
+	url = git@github.com:TheCodingCompany/MastodonOAuthPHP.git

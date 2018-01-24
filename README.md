@@ -17,6 +17,9 @@ You can install the current stable version via the [Wordpress Plugin Repository]
 * Autopost
   * Post on any update (also if you change posts)
   * Only post on new post
+  * Post with Standart Hashtag
+* Test
+	Test your Settings befor posting
   
   
 ## License

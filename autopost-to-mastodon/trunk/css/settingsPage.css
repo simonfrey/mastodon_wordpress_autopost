@@ -8,15 +8,12 @@ p.submit{
 	margin: 0;
 	padding: 0;
 }
-input[name=submit]{
-	float:left;
-}
+
 #testConnectionButton{
-	float: left;
 	margin-left: 5px;
 }
 
-#testConnectionMessage{
+#testConnectionMessage, #mAuthMessage{
 	font-weight: bold;
 	padding: 5px;
 }

@@ -8,13 +8,14 @@ class mastodon_post_handler{
 		function __construct() {
 	   		// //Add wordpress hook
 		   	 	add_action( 'publish_post', array(&$this, 'mastodon_post_published_notification'), 10, 2 );
+		   	 	add_action( 'publish_page', array(&$this, 'mastodon_post_published_notification'), 10, 2 );
 		   		add_action( 'admin_notices', array(&$this, 'post_send') );
 
 	   	} 
 	//Form the success message
 		function post_send() {
 			switch (get_post_meta( get_the_ID(), 'mastodonAutopostPostNotification', true )) {
-				case 404:
+				/*case 404:
 					echo '<div class="notice notice-error is-dismissible">
 		       	 		<p>'.esc_html__('Mastodon instance not found! Is the URL correct?', 'autopost-to-mastodon'). ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
 		    		</div>';
@@ -25,16 +26,18 @@ class mastodon_post_handler{
 		       	 		<p>'.esc_html__('Could not access mastodon profile! Are email and password correct?', 'autopost-to-mastodon'). ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
 		    		</div>';
 		    		update_post_meta( get_the_ID(), 'mastodonAutopostPostNotification', 0);
-				break;
+				break;*/
 				case 999:
 					echo '<div class="notice notice-error is-dismissible">
-		       	 		<p>'.esc_html__('Uncaught mastodon error! Please contact the developer.', 'autopost-to-mastodon'). ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
-		    		</div>';
+		       	 		<p>'.esc_html__('Uncaught mastodon error! Please contact the developer.', 'autopost-to-mastodon').'</p></div>';
+
+		       	 		/*. ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
+		    		</div>';*/
 		    		update_post_meta( get_the_ID(), 'mastodonAutopostPostNotification', 0);
 				break;
 				case 200:
 					echo '<div class="notice notice-success is-dismissible">
-		       	 		<p>'.esc_html__('Tooted to Mastodon!', 'autopost-to-mastodon'). '</p>
+		       	 		<p>'.esc_html__('Tooted to Mastodon!', 'autopost-to-mastodon'). ' <a href="'.get_post_meta( get_the_ID(), 'mastodonAutopostLastSuccessfullPostURL', true ).'" target="_blank">'.esc_html__('Open toot', 'autopost-to-mastodon'). '.</a></p>
 		    		</div>';
 		    		update_post_meta( get_the_ID(), 'mastodonAutopostPostNotification', 0);
 				break;
@@ -54,56 +57,46 @@ class mastodon_post_handler{
 		        $title = $post->post_title;
 		        $hashtags = get_option('mastodon_post_hashtags');
 		        $permalink = get_permalink( $ID );
+		        $content = $post->post_content;
 
-		    //Mastodon User Settings
-		        $email = get_option('mastodon_email');
-			    $password = get_option('mastodon_password');
-			    $url = get_option('mastodon_server_url');
-			
-			//Super Basic Posting
-				//Login FU
-				    $mastodon_api->set_url($url);
-					$urlResp = $mastodon_api->create_app('Wordpress Mastodon Autopost',null,$url,$url);
-					$mastodon_api->set_client($mastodon_api->get_client_id(),$mastodon_api->get_client_secret());
-					$loginResp = $mastodon_api->login($email,$password);
-					$mastodon_api->set_token($mastodon_api->get_access_token(),$mastodon_api->get_token_type());
+		    //Behavior
+		        $visibility = get_option('mastodon_post_visibility');
+				$postFormat = get_option('mastodon_post_format');
+
+		        //mastodon login fu
+                $url = get_option('mastodon_url');;
+                $recoveredData = get_option('mastodon_creds');
+                // unserializing to get actual array
+                $recoveredArray = (array) json_decode($recoveredData);
+             	$mastodon_api->setMastodonDomain($url); // Set the mastodon domain, you can remove this line if you're using mastodon.social as it's the default
+                $mastodon_api->setCredentials($recoveredArray);
+
 
 				//Craft the Post
 				//Depending of the set post format in settings
-					$post_format = 0;
-					$parameters = array();
-
-					switch ($post_format) {
+					switch ($postFormat) {
 						case 1:
 							//Title Link and Image
-								if ( has_post_thumbnail($ID) ){
-       								//Get Image
-       									$imageURL = wp_get_attachment_image_url( get_post_thumbnail_id($ID), 'large' ); 
-        							
-         							//Upload image 
-        								$imageData = $mastodon_api->media($imageURL);
- 
-									$var_info = print_r($imageData, true);
+								$titleLen = strlen($title);
+								$permaLinkLen = strlen($permalink);
+								$hashtagsLen = strlen($hashtags);
+								$contetMaxLen = 500 - 7 - $titleLen - $permaLinkLen - $hashtagsLen;
 
-        							//Set image data to post
-        								$media_ids = array($imageData['id']);
-        								$parameters['media_ids'] = $media_ids;
+								$shortContent = substr($content,0,$contetMaxLen);
 
-        								$parameters['status'] = $var_info . $title . " " . $permalink;
-
-        						}
-
+						        $postContentLong = $title . "\n". $shortContent." ...\n". $permalink."\n" . $hashtags;
+								$postContent = substr($postContentLong,0,500);
 							break;
 						
 						default:
 							//Only title and link
-								$postContent = $title . "  " . $permalink . " " . $hashtags;
-								$parameters['status'] = substr($postContent,0,500);
+								$postContentLong = $title . "\n" . $permalink . "\n" . $hashtags;
+								$postContent = substr($postContentLong,0,500);
 								break;
 					}
 
 				//Actually send the post
-					$postResp = $mastodon_api->post_statuses($parameters);
+					$postResp = $mastodon_api->postStatus($postContent, $visibility);
 
 				if(get_option('mastodon_post_on_update') == "1"){
 					update_post_meta( $ID, 'mastodonAutopostPublishedNoRetoot', false);
@@ -111,31 +104,13 @@ class mastodon_post_handler{
 					update_post_meta( $ID, 'mastodonAutopostPublishedNoRetoot', true);
 				}
 
-				switch ($postResp['response']) {
-						case null:
-							//HTTPS(404) -> not found							
-							update_post_meta( $ID, 'mastodonAutopostPostNotification', 404);
-						break;
-						case "404":
-							//not found -> URL wrong
-							update_post_meta( $ID, 'mastodonAutopostPostNotification', 404);
-
-						break;
-						case "401":
-							//token wrong -> Username or password wrong
-							update_post_meta( $ID, 'mastodonAutopostPostNotification', 401);
-
-						break;
-						case "200":
-							//success
+				if(isset($postResp[id])){
 							update_post_meta( $ID, 'mastodonAutopostPostNotification', 200);
-						break;
-						default:
-							//Uncaught error
+							update_post_meta( $ID, 'mastodonAutopostLastSuccessfullPostURL', $postResp['url']);
+				}else{
 							update_post_meta( $ID, 'mastodonAutopostPostNotification', 999);
-						break;
 				}
-
+					
     	}
     }
 

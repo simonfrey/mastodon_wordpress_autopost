@@ -10,6 +10,15 @@ function mastodon_autopost_metabox() {
         'normal',      // part of page where the box should appear
         'default'      // priority of the box
     );
+
+    add_meta_box(
+        'mastodon_autopost_metabox',          // this is HTML id of the box on edit screen
+        esc_attr__('Mastodon Autopost', 'autopost-to-mastodon'),    // title of the box
+        'mastodon_autopost_metabox_content',   // function to be called to display the checkboxes, see the function below
+        'page',        // on which edit screen the box should appear
+        'normal',      // part of page where the box should appear
+        'default'      // priority of the box
+    );
 }
 
 // display the metabox
@@ -54,6 +63,7 @@ function mastodon_autopost_metabox_field_data() {
 //save data hooks - publish_post(9) to get executed before sending the toot
     add_action( 'save_post', 'mastodon_autopost_metabox_field_data',9 );
     add_action( 'publish_post', 'mastodon_autopost_metabox_field_data',9 );
+    add_action( 'publish_page', 'mastodon_autopost_metabox_field_data',9 );
 
 
 ?>

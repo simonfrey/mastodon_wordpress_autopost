@@ -27,8 +27,8 @@ msgstr "Plugin Verhalten"
 msgid "Also toot on Post Update"
 msgstr "Auch bei einem Post Update tooten"
 
-msgid "Please provide the account details for the server. The server URL should include http or https and a trailing slash. e.g. http://mastodon.social/"
-msgstr "Bitte gib die Accountdaten des Servers ein. Die Server URL sollte auch http bzw. https und einen / am Ende enthalten. z.B. https://mastodon.social"
+msgid "Please provide the account details for the server."
+msgstr "Bitte gib die Accountdaten des Servers ein."
 
 msgid "Configure the Plugin Behavior"
 msgstr "Konfiguriere das Plugin Verhalten"
@@ -84,6 +84,40 @@ msgstr "Nein"
 msgid "Please give me feedback how your experience could be improved"
 msgstr "Bitte gib mir Feedback wie das Plugin verbessert werden kann"
 
+msgid "Authentication"
+msgstr "Authetifizierung"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Toot Visibility"
+msgstr "Toot Sichtbarkeit"
+
+msgid "Toot Format"
+msgstr "Toot Format"
+
+msgid "Public"
+msgstr "Öffentlicj"
+
+msgid "Unlisted"
+msgstr "Nicht gelistet"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Hashtags"
+msgstr "Hashtags"
+
+
 #Toot Feedback
 
 msgid "Tooted to Mastodon!"
@@ -101,6 +135,13 @@ msgstr "Unbekannter Mastodon Error! Bitte den Entwickler kontaktieren"
 msgid "Test Toot successfully tooted to Mastodon!"
 msgstr "Test Toot wurde erfoglreich auf Mastodon gepostet!"
 
+msgid "Open toot"
+msgstr "Toot öffnen"
+
+#general notice
+msgid "Seems like you are not logged into Mastodon Autopost! Please check the your login!"
+msgstr "Es sieht so aus als wären sie nicht bei Mastodon eingeloggt. Bitte überprüfen sie ihren login!"
+
 #Test Toot
 
 msgid "This is my first toot with the Autopost to Mastodon Wordpress Plugin"
@@ -108,3 +149,11 @@ msgstr "Das ist mein erster Toot mit dem Autopost to Mastodon Wordpress Plugin"
 
 msgid "By clicking the \"Test Settings\" Button the following toot will be tooted to your mastodon profile:"
 msgstr "Beim Klick auf \"Einstellungen Testen\" wird der folgende Test Toot auf dein Mastodon Profil gepostet:"
+
+#javascript localization
+
+msgid "Enter the token from the popup"
+msgstr "Geben sie den Code aus dem Popup ein."
+
+msgid "Please login again and copy the shown code into the popup"
+msgstr "Bitte loggen sie sich erneut ein und kopieren sie den Code."

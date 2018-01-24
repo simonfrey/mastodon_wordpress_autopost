@@ -2,8 +2,8 @@
 Contributors: l1am0
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 3.0.1
-Tested up to: 4.8
-Stable tag: 1.3
+Tested up to: 4.9.2
+Stable tag: 2.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -13,8 +13,9 @@ A Wordpress Plugin that automatically posts your new articles to Mastodon. The b
  
 With GNUsocial Autopost your post always get automatically posted to your Mastodon account.
 
-They are posted in the form: 
-[Post title] [Post URL]
+There are two formats available: 
+Post title + Post URL + Hashtags
+Post title + Post Excerpt + Post URL + Hashtags
 
 Find the plugin settings: Settings > Mastodon Autpost Settings
 
@@ -24,7 +25,7 @@ For any questions, do not hesitate to contact me:
 *	Mail: mastodonautopost@l1am0.eu
 *	XMPP: l1am0@trashserver.net
 
-Do you want to help translating this plugin in your language? Just contact me! Trust me, it's super easy. You do not have to be a programer.
+Do you want to help translating this plugin in your language? [Visit the translation page](https://translate.wordpress.org/projects/wp-plugins/autopost-to-mastodon)
 
 == Frequently Asked Questions ==
  
@@ -39,8 +40,20 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 == Screenshots ==
  
 1. Mastodon Autopost settings page
- 
+
 == Changelog ==
+= 2.0 =
+* Changed backend libary
+* Now working with oauth
+* OTP and 2FA working
+* Different post formats available
+* Set post visibility
+* Suggest mastodon server
+* Works now also with pages
+* Test settings working again
+* The toot notification shows the url of the tooted post
+* For syndication: The plugin attaches the posted url to the post meta data. The tag is "mastodonAutopostLastSuccessfullPostURL"
+
 = 1.3 =
 *	Improved Feedback on post toot
 *	Test Settings button, to check server settings
@@ -68,7 +81,7 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 == Credits ==
 
 = Mastodon PHP API =
-This project is using a [modified Mastodon PHP libary](https://github.com/L1am0/mastodon_wordpress_api) based on the work of [yks118](https://github.com/yks118/Mastodon-api-php)
+This project is using the [MastodonOAauthPHP libary](https://github.com/TheCodingCompany/MastodonOAuthPHP)
 
 = Graphics =
 Thanks to 
