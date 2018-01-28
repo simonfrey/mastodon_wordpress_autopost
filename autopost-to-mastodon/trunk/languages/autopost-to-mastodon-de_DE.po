@@ -117,6 +117,11 @@ msgstr "Link"
 msgid "Hashtags"
 msgstr "Hashtags"
 
+msgid "Enter Token"
+msgstr "Token aktivieren"
+
+msgid" Enter the token from the popup. If the popup is not opening visit the following url"
+msgstr "Geben sie den Token aus dem Popup ein. Falls sich das Popup nicht öffnet besuchen sie bitte folgende Webseite"
 
 #Toot Feedback
 
@@ -157,3 +162,9 @@ msgstr "Geben sie den Code aus dem Popup ein."
 
 msgid "Please login again and copy the shown code into the popup"
 msgstr "Bitte loggen sie sich erneut ein und kopieren sie den Code."
+
+msgid "Please include the following data in your email:"
+msgstr "Bitte fügen Sie die folgende Daten in Ihre Email ein:"
+
+msgid "Error Data:"
+msgstr "Error Daten:"

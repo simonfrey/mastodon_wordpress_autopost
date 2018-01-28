@@ -37,6 +37,7 @@
                         'mastodon_server_settings_server_section'
                     );
              
+             
                 // register a new field email
                     add_settings_field(
                         'mastodon_email_field',
@@ -156,10 +157,23 @@
 
         echo '<input id="userAuthButton" type="button" value="'.esc_html__('Login', 'autopost-to-mastodon').'" class="button" '.$buttonEnabled.'>';
                 echo '<div id="mAuthMessage"></div>';
+                ?>
+ <div id="tokenEnterForm">
+        <div>
+            <input type="text" placeholder="fokwnmf3lwfd2sdfa2le3dwlsdmq32324we321fw" name="mastodon_server_token">
+            <input id="getBearerButton" type="button" value="<?=esc_html__('Enter Token', 'autopost-to-mastodon');?>" class="button">
+        </div>
+        <div> 
+            <?=esc_html__('Enter the token from the popup. If the popup is not opening visit the following url', 'autopost-to-mastodon');?>:
+        </div>
+        <div>
+            <a href="" id="tokenPopupURL" target="_blank"></a>
+        </div>
+    </div>
+                <?php
 
     }
 
- 
 // email
     function mastodon_user_auth_func()
     {

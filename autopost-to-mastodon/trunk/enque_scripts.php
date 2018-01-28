@@ -26,9 +26,10 @@ function mastodon_autopost_enqueue($hook) {
 
     wp_localize_script('ajax-script', 'notifications_obj', array(
         'notFound' => esc_html__('Mastodon instance not found! Is the URL correct?', 'autopost-to-mastodon'),
-        'popup' => esc_html__('Enter the token from the popup', 'autopost-to-mastodon'),
         'typeinpopup' => esc_html__('Please login again and copy the shown code into the popup.', 'autopost-to-mastodon'),
         'uncaught' => esc_html__('Uncaught mastodon error! Please contact the developer.', 'autopost-to-mastodon'),
+        'errorDataMsg' => esc_html__('Please include the following data in your email:', 'autopost-to-mastodon'),
+        'errorData' => esc_html__('Error Data:', 'autopost-to-mastodon'),
         'ok' => esc_html__('Test Toot successfully tooted to Mastodon!', 'autopost-to-mastodon'),
         'testmsg' => esc_html__('By clicking the "Test Settings" Button the following toot will be tooted to your mastodon profile:', 'autopost-to-mastodon').' "'.esc_html__('This is my first toot with the Autopost to Mastodon Wordpress Plugin', 'autopost-to-mastodon').' https://wordpress.org/plugins/autopost-to-mastodon/"'
     ));

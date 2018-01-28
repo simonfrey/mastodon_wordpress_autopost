@@ -3,13 +3,15 @@ Contributors: l1am0
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 3.0.1
 Tested up to: 4.9.2
-Stable tag: 2.0.0.2
+Stable tag: 2.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
 A Wordpress Plugin that automatically posts your new articles to Mastodon. The best: It is set and forget! 
  
 == Description ==
+
+A Wordpress Plugin that automatically posts your new articles to Mastodon. The best: It is set and forget! 
  
 With GNUsocial Autopost your post always get automatically posted to your Mastodon account.
 
@@ -42,6 +44,12 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 1. Mastodon Autopost settings page
 
 == Changelog ==
+
+= 2.0.2 =
+* Add proper error messages
+
+= 2.0.1 =
+* Removed token prompt in favor of nativ div
 
 = 2.0.0.2 =
 * OAuth server communication bug

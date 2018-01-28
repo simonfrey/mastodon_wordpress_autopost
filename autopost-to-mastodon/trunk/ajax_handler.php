@@ -26,15 +26,18 @@ function mastodon_autopost_get_bearer_ajax_handler() {
             //Get bearer
                 $bearer = $mastodon_api->getAccessToken($token);
 
-                if($bearer) {
+
+
+                if($bearer){
                     $recoveredArray['bearer'] = $bearer;
                     $serializedData = json_encode($recoveredArray);
                     update_option( 'mastodon_creds', $serializedData );
-                    
-                    echo 0;
-                  }else{
-                      echo -1;
-                  }
+
+                    echo '{"status":"0", "action":"getBearer"}';
+                }else{
+                    echo '{"status":"-1", "action":"getBearer", "mastodonResponse": '.json_encode($bearer).', "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
+                }
+
     wp_die(); // all ajax handlers should die when finished
 }
 
@@ -68,9 +71,9 @@ function mastodon_autopost_ajax_handler() {
 
     
                 if(isset($response['id'])){
-                    echo $response['url'];
+                    echo '{"status":"0", "action":"testConnection", "serverURL": "'.$response['url'].'"}';
                 }else{
-                    echo -1;
+                    echo '{"status":"-1", "action":"testConnection", "mastodonResponse": '.json_encode($response).', "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
                 }
 
                   
@@ -103,7 +106,9 @@ function mastodon_autopost_userAuth_ajax_handler() {
             //Get the auth url
             $auth_url = $mastodon_api ->getAuthUrl();
 
-            echo $auth_url;
+            
+            echo '{"status":"0", "action":"userAuth", "authUrl": "'.$auth_url.'", "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
+              
     wp_die(); // all ajax handlers should die when finished
 }
 ?>

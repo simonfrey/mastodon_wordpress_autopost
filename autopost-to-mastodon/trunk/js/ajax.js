@@ -1,21 +1,25 @@
 jQuery(document).ready(function($) {       //wrapper
     $("#testConnectionButton").click(function() {        //event
-        var serverURL = $("input[name=mastodon_server_url]").val(); 
-
-
         $("input").css("border", "");
         $("#testConnectionButton").css("animation", "glowing 2000ms infinite");
+        $('#mAuthMessage').fadeOut('slow');
+
+
+        console.log("Testconnection start request.");
 
        $.post(my_ajax_obj.ajax_url, {     //POST request
           _ajax_nonce:  my_ajax_obj.nonce, //nonce
             action: "test_connection"        //action
         }, function(data) {  
-            console.log(data);              //callback
+            console.log("Testconnection Serverresponse: "+data);
             $("#testConnectionButton").css("animation", "");
-            if(isValidUrl(data)){
-                $('#testConnectionMessage').html(notifications_obj.ok + "<br><a href='"+data+"' target='_blank'>"+data+"</a>");
+
+            var jsonResponse = JSON.parse(data);
+
+            if(jsonResponse.status == "0"){
+                $('#testConnectionMessage').html(notifications_obj.ok + "<br><a href='"+jsonResponse.serverURL+"' target='_blank'>"+jsonResponse.serverURL+"</a>");
             }else{
-                $('#testConnectionMessage').html(notifications_obj.uncaught + " 'mastodonautopost@l1am0.eu'");
+                $('#testConnectionMessage').html(notifications_obj.uncaught + ". 'mastodonautopost@l1am0.eu' <br>"+notifications_obj.errorDataMsg+"<br>"+notifications_obj.errorData+" <input value='"+data+"' onclick='this.select();'>" );
             }
 
         });
@@ -27,31 +31,72 @@ jQuery(document).ready(function($) {       //wrapper
         $("input").css("border", "");
         $("#userAuthButton").css("animation", "glowing 2000ms infinite");
 
+        $('#testConnectionButton').attr('disabled', true);  
+        $("#testConnectionMessage").fadeOut('slow');
+        $('#testConnectionMessage').html("");  
+        $('#mAuthMessage').fadeOut('slow');
+
+          console.log("User Auth start request. ServerURL:"+serverURL);
+
        $.post(my_ajax_obj.ajax_url, {     //POST request
           _ajax_nonce: my_ajax_obj.nonce, //nonce
             action: "user_auth",        //action
             serverURL: serverURL           //data
         }, function(data) {  
             $("#userAuthButton").css("animation", "");
+            console.log("User auth response: "+data);
+            var jsonResponse = JSON.parse(data);
 
-            if(isValidUrl(data)){
+            if(isValidUrl(jsonResponse.authUrl)){
+                $('#tokenPopupURL').attr('href',jsonResponse.authUrl);
+                $('#tokenPopupURL').html(jsonResponse.authUrl);
+                $("#tokenEnterForm").fadeIn('slow');
+                $("input[name='mastodon_server_token']").attr('value','');
+
                 window.open(data, '_blank');
-                var token = prompt(notifications_obj.popup+": ", "");
-                if(token != null){
-                    getBearer(token);
-                    $('#mAuthMessage').html("");                
-                }else{
-                    $('#mAuthMessage').html(notifications_obj.typeinpopup);                
-                    $('#testConnectionButton').attr('disabled', true);                  
-                    $('#testConnectionMessage').html("");    
-                } 
-
             }else{
                 $("input[name=mastodon_server_url]").css("border", "2px solid red")
                 $('#testConnectionMessage').html(notifications_obj.notFound);    
             }
         });
         
+    });
+
+
+    $("#getBearerButton").click(function() {        //event
+        var token = $("input[name=mastodon_server_token]").val(); 
+         $("input").css("border", "");
+        $("#getBearerButton").css("animation", "glowing 2000ms infinite");
+
+        console.log("GetBearer start request.");
+
+       $.post(my_ajax_obj.ajax_url, {     //POST request
+          _ajax_nonce: my_ajax_obj.nonce, //nonce            
+          action: "get_bearer",        //action
+            token: token        //action
+        }, function(data) {  
+            $("#getBearerButton").css("animation", "");
+            console.log("GetBearer response: "+data);
+
+            var jsonResponse = JSON.parse(data);
+
+            if(jsonResponse.status == "0"){
+                $("#tokenEnterForm").fadeOut('slow');
+                $('#testConnectionButton').attr('disabled', false);                
+                $('#testConnectionMessage').html(notifications_obj.testmsg);
+                $("#testConnectionMessage").fadeIn('slow');
+                $('#mAuthMessage').fadeOut('slow');
+
+
+            }else{                    
+                $('#mAuthMessage').html(notifications_obj.uncaught + ". 'mastodonautopost@l1am0.eu' <br>"+notifications_obj.errorDataMsg+"<br>"+notifications_obj.errorData+" <input value='"+data+"' onclick='this.select();'>" );
+                $('#mAuthMessage').fadeIn('slow');
+                $('#testConnectionButton').attr('disabled', true);
+                $("#testConnectionMessage").fadeOut('slow');    
+                $("#tokenEnterForm").fadeOut('slow');    
+                $('#testConnectionMessage').html("");    
+            }
+        });
     });
 });
 
