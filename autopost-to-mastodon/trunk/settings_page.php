@@ -184,7 +184,7 @@
         <input type="text" name="mastodon_token" placeholder="sk9f3cb61a03778fa4f67hx215dd1b29bc12053fa4953daa55dd9178224e1d1be" value="<?= isset($setting) ? esc_attr($setting) : ''; ?>">*/
 
         $buttonEnabled = ($setting != "") ? "" : "disabled";
-        $testmsg = ($setting == "") ? "" : esc_html__('By clicking the "Test Settings" Button the following toot will be tooted to your mastodon profile:', 'autopost-to-mastodon').' "'.esc_html__('This is my first toot with the Autopost to Mastodon Wordpress Plugin', 'autopost-to-mastodon').' https://wordpress.org/plugins/autopost-to-mastodon/"';
+        $testmsg = ($setting == "") ? "" : esc_html__('By clicking the "Test Settings" Button the following toot will be tooted to your Mastodon profile:', 'autopost-to-mastodon').' "'.esc_html__('This is my first toot with the Autopost to Mastodon Wordpress Plugin', 'autopost-to-mastodon').' https://wordpress.org/plugins/autopost-to-mastodon/"';
 
         echo '<input id="testConnectionButton" type="button" value="'.esc_html__('Test Settings', 'autopost-to-mastodon').'" class="button" '.$buttonEnabled.'>';
         echo '<div id="testConnectionMessage">'.$testmsg.'</div>';

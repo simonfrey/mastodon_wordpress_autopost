@@ -23,7 +23,7 @@ class mastodon_post_handler{
 				break;
 				case 401:
 					echo '<div class="notice notice-error is-dismissible">
-		       	 		<p>'.esc_html__('Could not access mastodon profile! Are email and password correct?', 'autopost-to-mastodon'). ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
+		       	 		<p>'.esc_html__('Could not access Mastodon profile! Are email and password correct?', 'autopost-to-mastodon'). ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
 		    		</div>';
 		    		update_post_meta( get_the_ID(), 'mastodonAutopostPostNotification', 0);
 				break;*/
@@ -33,7 +33,7 @@ class mastodon_post_handler{
                     $mData =  '{"status":"-1", "action":"postStatus", "mastodonResponse": '.json_encode($mResponse).', "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
 
 					echo "<div class='notice notice-error is-dismissible'>
-		       	 		<p>".esc_html__("Uncaught mastodon error! Please contact the developer.", "autopost-to-mastodon")." 'mastodonautopost@l1am0.eu'<br>".esc_html__("Please include the following data in your email:", "autopost-to-mastodon")."<br>".esc_html__("Error Data:", "autopost-to-mastodon")." <input value='".$mData."' onclick='this.select();'></p></div>";
+		       	 		<p>".esc_html__("Uncaught Mastodon error! Please contact the developer.", "autopost-to-mastodon")." 'mastodonautopost@l1am0.eu'<br>".esc_html__("Please include the following data in your email:", "autopost-to-mastodon")."<br>".esc_html__("Error Data:", "autopost-to-mastodon")." <input value='".$mData."' onclick='this.select();'></p></div>";
 
 		       	 		/*. ' - <a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=mastodon-settings-page">'.esc_attr__('Settings', 'autopost-to-mastodon').'</a></p>
 		    		</div>';*/
