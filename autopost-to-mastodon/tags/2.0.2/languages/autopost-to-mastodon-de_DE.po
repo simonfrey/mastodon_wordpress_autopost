@@ -1,0 +1,170 @@
+#German Translation
+#for Mastdon Autopost Wordpress Plugin
+
+#: post_meta_box.php
+msgid "Mastodon Autopost"
+msgstr "Mastodon Autopost"
+
+msgid "Post to Mastodon"
+msgstr "Auf Mastdodon tooten"
+
+#: settings_page.php
+msgid "Server Settings"
+msgstr "Server Einstellungen"
+
+msgid "Server URL"
+msgstr "Server URL"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Plugin Behavior"
+msgstr "Plugin Verhalten"
+
+msgid "Also toot on Post Update"
+msgstr "Auch bei einem Post Update tooten"
+
+msgid "Please provide the account details for the server."
+msgstr "Bitte gib die Accountdaten des Servers ein."
+
+msgid "Configure the Plugin Behavior"
+msgstr "Konfiguriere das Plugin Verhalten"
+
+msgid "Mastodon Autopost Settings"
+msgstr "Mastodon Autopost Einstellungen"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Test Settings"
+msgstr "Einstellungen testen"
+
+msgid "Configure the Post"
+msgstr "Post konfigurieren"
+
+msgid "Global Post Hashtags"
+msgstr "Globale Post Hashtags"
+
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+msgid "Do you like Mastodon Autopost?"
+msgstr "Magst du Mastodon Autopost?"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Please rate the plugin"
+msgstr "Bitte bewerte das Plugin"
+
+msgid "For getting the word out, it's important to have good reviews"
+msgstr "Um mehr Verbreitung zu finden sind gute Bewertungen ausschlaggebend"
+
+msgid "Rate on Wordpress.org"
+msgstr "Bewerte auf Wordpress.org"
+
+msgid "Consider participating.(e.g. With translating it into another language)"
+msgstr "Hilf mit das Plugin zu verbessern (z.B. in andere Sprachen übersetzen)"
+
+msgid "Mastodon Autopost is on Github"
+msgstr "Mastodon Autopost ist auf Github zu finden"
+
+msgid "Want to thank in another way?"
+msgstr "Anderweitig beitragen"
+
+msgid "Buy me a Mate"
+msgstr "Gib mir ne Mate aus"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Please give me feedback how your experience could be improved"
+msgstr "Bitte gib mir Feedback wie das Plugin verbessert werden kann"
+
+msgid "Authentication"
+msgstr "Authetifizierung"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Toot Visibility"
+msgstr "Toot Sichtbarkeit"
+
+msgid "Toot Format"
+msgstr "Toot Format"
+
+msgid "Public"
+msgstr "Öffentlicj"
+
+msgid "Unlisted"
+msgstr "Nicht gelistet"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Hashtags"
+msgstr "Hashtags"
+
+msgid "Enter Token"
+msgstr "Token aktivieren"
+
+msgid" Enter the token from the popup. If the popup is not opening visit the following url"
+msgstr "Geben sie den Token aus dem Popup ein. Falls sich das Popup nicht öffnet besuchen sie bitte folgende Webseite"
+
+#Toot Feedback
+
+msgid "Tooted to Mastodon!"
+msgstr "Auf Mastodon gepostet!"
+
+msgid "Mastodon instance not found! Is the URL correct?"
+msgstr "Mastodon Instanz nicht gefunden! Ist die URL korrekt?"
+
+msgid "Could not access mastodon profile! Are email and password correct?"
+msgstr "Mastodon Profil konnte nicht geöffnet werden! Sind Passwort und Email korrekt?"
+
+msgid "Uncaught mastodon error! Please contact the developer."
+msgstr "Unbekannter Mastodon Error! Bitte den Entwickler kontaktieren"
+
+msgid "Test Toot successfully tooted to Mastodon!"
+msgstr "Test Toot wurde erfoglreich auf Mastodon gepostet!"
+
+msgid "Open toot"
+msgstr "Toot öffnen"
+
+#general notice
+msgid "Seems like you are not logged into Mastodon Autopost! Please check the your login!"
+msgstr "Es sieht so aus als wären sie nicht bei Mastodon eingeloggt. Bitte überprüfen sie ihren login!"
+
+#Test Toot
+
+msgid "This is my first toot with the Autopost to Mastodon Wordpress Plugin"
+msgstr "Das ist mein erster Toot mit dem Autopost to Mastodon Wordpress Plugin"
+
+msgid "By clicking the \"Test Settings\" Button the following toot will be tooted to your mastodon profile:"
+msgstr "Beim Klick auf \"Einstellungen Testen\" wird der folgende Test Toot auf dein Mastodon Profil gepostet:"
+
+#javascript localization
+
+msgid "Enter the token from the popup"
+msgstr "Geben sie den Code aus dem Popup ein."
+
+msgid "Please login again and copy the shown code into the popup"
+msgstr "Bitte loggen sie sich erneut ein und kopieren sie den Code."
+
+msgid "Please include the following data in your email:"
+msgstr "Bitte fügen Sie die folgende Daten in Ihre Email ein:"
+
+msgid "Error Data:"
+msgstr "Error Daten:"
