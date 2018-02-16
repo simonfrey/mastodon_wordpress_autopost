@@ -3,7 +3,7 @@
 * Plugin Name: Mastodon Autopost
 * Plugin URI: https://github.com/L1am0/mastodon_wordpress_autopost
 * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
-* Version: 2.0.2
+* Version: 2.0.4
 * Author: L1am0
 * Author URI: http://www.l1am0.eu
 * License: GPL2

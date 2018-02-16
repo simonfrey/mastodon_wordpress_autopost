@@ -1,9 +1,9 @@
 === Mastodon Autopost ===
 Contributors: l1am0
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
-Requires at least: 3.0.1
+Requires at least: 4.6
 Tested up to: 4.9.2
-Stable tag: 2.0.2
+Stable tag: 2.0.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -26,8 +26,11 @@ Just set your credentials and your post preference and lean back. The rest is do
 For any questions, do not hesitate to contact me:
 *	Mail: mastodonautopost@l1am0.eu
 *	XMPP: l1am0@trashserver.net
+*	Mastodon: chaos.social/@l1am0
 
 Do you want to help translating this plugin in your language? [Visit the translation page](https://translate.wordpress.org/projects/wp-plugins/autopost-to-mastodon)
+
+Please consider donating via [Liberapay](https://liberapay.com/l1am0/donate) <3
 
 == Frequently Asked Questions ==
  
@@ -44,6 +47,14 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 1. Mastodon Autopost settings page
 
 == Changelog ==
+
+= 2.0.4 =
+* Evaluates content HTML before tooting it
+* Changed to official naming convention "Mastodon"
+* Requires now minimum version 4.6 for translations via [the translation page](https://translate.wordpress.org/projects/wp-plugins/autopost-to-mastodon)
+
+= 2.0.3 =
+* Changed to wordpress HTTP library
 
 = 2.0.2 =
 * Add proper error messages

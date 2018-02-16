@@ -112,7 +112,7 @@
        <h4><?php esc_html_e('Yes','autopost-to-mastodon');?>!</h4>
        * <b><?php esc_html_e('Please rate the plugin','autopost-to-mastodon');?>!</b> <?php esc_html_e("For getting the word out, it's important to have good reviews",'autopost-to-mastodon');?>: <a href="https://wordpress.org/plugins/autopost-to-mastodon/" target="_blank"><?php esc_html_e('Rate on Wordpress.org','autopost-to-mastodon');?></a><br>
        * <?php esc_html_e('Consider participating.(e.g. With translating it into another language)','autopost-to-mastodon');?>: <a href="https://github.com/L1am0/mastodon_wordpress_autopost" target="_blank"><?php esc_html_e('Mastodon Autopost is on Github','autopost-to-mastodon');?></a><br>
-       * <?php esc_html_e('Want to thank in another way?','autopost-to-mastodon');?>: <a href="http://l1am0.eu/donate.php?p=map" target="_blank"><?php esc_html_e('Buy me a Mate','autopost-to-mastodon');?></a>
+       * <?php esc_html_e('Want to thank in another way?','autopost-to-mastodon');?>: <a href="http://l1am0.eu/donate.php?p=map" target="_blank"><?php esc_html_e('Buy me a Mate','autopost-to-mastodon');?></a><br><a href="https://liberapay.com/l1am0/donate" target="_blank"><img alt="Donate using Liberapay" src="<?=WP_PLUGIN_URL;?>/autopost-to-mastodon/img/donate.svg"></a>
        <h4><?php esc_html_e('No','autopost-to-mastodon');?></h4>
        * <?php esc_html_e('Please give me feedback how your experience could be improved','autopost-to-mastodon');?>: <a href="mailto:mastodonautopost@l1am0.eu">mastodonautopost@l1am0.eu</a>
         </div>

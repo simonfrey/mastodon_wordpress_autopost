@@ -95,20 +95,25 @@ function mastodon_autopost_userAuth_ajax_handler() {
             //Create mastodon app
             $token_info = $mastodon_api->createApp("Wordpress Mastodon Autopost", "https://wordpress.org/plugins/autopost-to-mastodon/");
             
-            $serializedData = json_encode($token_info);
-            // save the special tokens to a file, so you don't lose them
-            update_option( 'mastodon_creds', $serializedData );
-            update_option( 'mastodon_url', $url );
+            echo $serializedData;
 
-            $mastodon_api->setCredentials($token_info);
-
+            if($token_info){
+                $serializedData = json_encode($token_info);
             
-            //Get the auth url
-            $auth_url = $mastodon_api ->getAuthUrl();
+                // save the special tokens to a file, so you don't lose them
+                update_option( 'mastodon_creds', $serializedData );
+                update_option( 'mastodon_url', $url );
 
-            
-            echo '{"status":"0", "action":"userAuth", "authUrl": "'.$auth_url.'", "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
-              
+                $mastodon_api->setCredentials($token_info);
+
+                //Get the auth url
+                $auth_url = $mastodon_api ->getAuthUrl();
+
+                
+                echo '{"status":"0", "action":"userAuth", "authUrl": "'.$auth_url.'", "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
+            }else{
+                echo '{"status":"-1", "action":"registerApp", "phpVersion": "'.phpversion().'", "wordpressVersion":"'.get_bloginfo('version').'", "wordpressLanguage":"'.get_bloginfo('language').'"}';
+            }
     wp_die(); // all ajax handlers should die when finished
 }
 ?>

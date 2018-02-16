@@ -61,7 +61,7 @@ class mastodon_post_handler{
 		        $title = $post->post_title;
 		        $hashtags = get_option('mastodon_post_hashtags');
 		        $permalink = get_permalink( $ID );
-		        $content = $post->post_content;
+		        $content =  wp_trim_words($post->post_content);
 
 		    //Behavior
 		        $visibility = get_option('mastodon_post_visibility');
@@ -108,7 +108,7 @@ class mastodon_post_handler{
 					update_post_meta( $ID, 'mastodonAutopostPublishedNoRetoot', true);
 				}
 
-				if(isset($postResp[id])){
+				if(isset($postResp['id'])){
 							update_post_meta( $ID, 'mastodonAutopostPostNotification', 200);
 							update_post_meta( $ID, 'mastodonAutopostLastSuccessfullPostURL', $postResp['url']);
 				}else{

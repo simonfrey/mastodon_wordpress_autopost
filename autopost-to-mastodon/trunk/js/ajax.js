@@ -30,7 +30,8 @@ jQuery(document).ready(function($) {       //wrapper
         var serverURL = $("input[name=mastodon_instance_url]").val(); 
         $("input").css("border", "");
         $("#userAuthButton").css("animation", "glowing 2000ms infinite");
-
+        
+        $("#tokenEnterForm").fadeOut('slow');
         $('#testConnectionButton').attr('disabled', true);  
         $("#testConnectionMessage").fadeOut('slow');
         $('#testConnectionMessage').html("");  
@@ -47,7 +48,7 @@ jQuery(document).ready(function($) {       //wrapper
             console.log("User auth response: "+data);
             var jsonResponse = JSON.parse(data);
 
-            if(isValidUrl(jsonResponse.authUrl)){
+            if(jsonResponse.status == "0"){
                 $('#tokenPopupURL').attr('href',jsonResponse.authUrl);
                 $('#tokenPopupURL').html(jsonResponse.authUrl);
                 $("#tokenEnterForm").fadeIn('slow');
@@ -56,7 +57,8 @@ jQuery(document).ready(function($) {       //wrapper
                 window.open(data, '_blank');
             }else{
                 $("input[name=mastodon_server_url]").css("border", "2px solid red")
-                $('#testConnectionMessage').html(notifications_obj.notFound);    
+                $('#mAuthMessage').html(notifications_obj.notFound); 
+                $("#mAuthMessage").fadeIn('slow');
             }
         });
         
