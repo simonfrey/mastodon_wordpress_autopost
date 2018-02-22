@@ -11,7 +11,7 @@
             register_setting('mastodon', 'mastodon_post_format');
             register_setting('mastodon', 'mastodon_post_on_update');
             register_setting('mastodon', 'mastodon_post_hashtags');
-     
+
         // register a new section in the "gnusocial-settings-page" page
             add_settings_section(
                 'mastodon_help_func',
@@ -27,7 +27,7 @@
                 'mastodon_server_settings_description_func',
                 'mastodon-settings-page'
             );
-     
+
                 // register a new field SERVER URL
                     add_settings_field(
                         'mastodon_server_url_field',
@@ -36,8 +36,8 @@
                         'mastodon-settings-page',
                         'mastodon_server_settings_server_section'
                     );
-             
-             
+
+
                 // register a new field email
                     add_settings_field(
                         'mastodon_email_field',
@@ -46,7 +46,7 @@
                         'mastodon-settings-page',
                         'mastodon_server_settings_server_section'
                     );
-             
+
 
         // register a new section in the "mastodon-settings-page" page
             add_settings_section(
@@ -55,7 +55,7 @@
                 'mastodon_post_description_func',
                 'mastodon-settings-page'
             );
-     
+
                 // register a new field SERVER URL
                     add_settings_field(
                         'mastodon_post_hashtags',
@@ -88,7 +88,7 @@
                 'mastodon_behavior_description_func',
                 'mastodon-settings-page'
             );
-     
+
                 // register a new field SERVER URL
                     add_settings_field(
                         'mastodon_post_on_update_field',
@@ -98,11 +98,11 @@
                         'mastodon_behavior_section'
                     );
     }
- 
+
 /**
  * Donate
  */
- 
+
     function mastodon_help_func()
     {
         ?>
@@ -111,7 +111,7 @@
 
        <h4><?php esc_html_e('Yes','autopost-to-mastodon');?>!</h4>
        * <b><?php esc_html_e('Please rate the plugin','autopost-to-mastodon');?>!</b> <?php esc_html_e("For getting the word out, it's important to have good reviews",'autopost-to-mastodon');?>: <a href="https://wordpress.org/plugins/autopost-to-mastodon/" target="_blank"><?php esc_html_e('Rate on Wordpress.org','autopost-to-mastodon');?></a><br>
-       * <?php esc_html_e('Consider participating.(e.g. With translating it into another language)','autopost-to-mastodon');?>: <a href="https://github.com/L1am0/mastodon_wordpress_autopost" target="_blank"><?php esc_html_e('Mastodon Autopost is on Github','autopost-to-mastodon');?></a><br>
+       * <?php esc_html_e('Consider participating (e.g. translating it into another language)','autopost-to-mastodon');?>: <a href="https://github.com/L1am0/mastodon_wordpress_autopost" target="_blank"><?php esc_html_e('Mastodon Autopost is on GitHub','autopost-to-mastodon');?></a><br>
        * <?php esc_html_e('Want to thank in another way?','autopost-to-mastodon');?>: <a href="http://l1am0.eu/donate.php?p=map" target="_blank"><?php esc_html_e('Buy me a Mate','autopost-to-mastodon');?></a><br><a href="https://liberapay.com/l1am0/donate" target="_blank"><img alt="Donate using Liberapay" src="<?=WP_PLUGIN_URL;?>/autopost-to-mastodon/img/donate.svg"></a>
        <h4><?php esc_html_e('No','autopost-to-mastodon');?></h4>
        * <?php esc_html_e('Please give me feedback how your experience could be improved','autopost-to-mastodon');?>: <a href="mailto:mastodonautopost@l1am0.eu">mastodonautopost@l1am0.eu</a>
@@ -120,17 +120,17 @@
     }
 
 
- 
+
 /**
- * Server Settings 
+ * Server Settings
  */
- 
+
 // Section Title
     function mastodon_server_settings_description_func()
     {
         esc_html_e('Please provide the account details for the server.', 'autopost-to-mastodon');
     }
- 
+
 // Server URL
     function mastodon_server_url_func()
     {
@@ -144,7 +144,7 @@
         ?>
         <input type="text" placeholder="mastodon.social" list="mInstances" name="mastodon_instance_url" value="<?= isset($setting) ? esc_attr($setting) : ''; ?>">
 
-        <?php 
+        <?php
         //Autocomplete
         echo '<datalist id="mInstances">';
           foreach($mInstancesArray as $row => $singleInstance){
@@ -163,7 +163,7 @@
             <input type="text" placeholder="fokwnmf3lwfd2sdfa2le3dwlsdmq32324we321fw" name="mastodon_server_token">
             <input id="getBearerButton" type="button" value="<?=esc_html__('Enter Token', 'autopost-to-mastodon');?>" class="button">
         </div>
-        <div> 
+        <div>
             <?=esc_html__('Enter the token from the popup. If the popup is not opening visit the following url', 'autopost-to-mastodon');?>:
         </div>
         <div>
@@ -190,19 +190,19 @@
         echo '<div id="testConnectionMessage">'.$testmsg.'</div>';
     }
 
- 
 
- 
+
+
 /**
- * Behavior Settings 
+ * Behavior Settings
  */
- 
+
 // Section Title
     function mastodon_behavior_description_func()
     {
         //xesc_html_e('Configure the Plugin Behavior', 'autopost-to-mastodon');
      }
- 
+
 // Server URL
     function mastodon_post_on_update_func()
     {
@@ -210,22 +210,22 @@
         $setting = get_option('mastodon_post_on_update');
         // output the field
         ?>
-       
+
         <input type="checkbox" id="mastodon_post_on_update" name="mastodon_post_on_update" value="1" <?php echo checked( 1, $setting, false ) ?>/>
 
         <?php
     }
 
 /**
- * Post Settings 
+ * Post Settings
  */
- 
+
 // Section Title
     function mastodon_post_description_func()
     {
         //xesc_html_e('Configure the Plugin Behavior', 'autopost-to-mastodon');
      }
- 
+
 // Hastags
     function mastodon_post_hashtags()
     {
@@ -233,7 +233,7 @@
         $setting = get_option('mastodon_post_hashtags');
         // output the field
         ?>
-       
+
         <input type="text" name="mastodon_post_hashtags" placeholder="#wordpress #autopost #magic" value="<?= isset($setting) ? esc_attr($setting) : ''; ?>">
 
         <?php
@@ -246,7 +246,7 @@
         $setting = get_option('mastodon_post_visibility');
         // output the field
         ?>
-       
+
         <input type="radio" name="mastodon_post_visibility" value="public" <?= $setting== "" || $setting=="public" ? 'checked' : ''; ?>> <?=esc_html("Public");?><br>
         <input type="radio" name="mastodon_post_visibility" value="unlisted" <?= $setting=="unlisted" ? 'checked' : ''; ?>> <?=esc_html("Unlisted");?><br>
         <input type="radio" name="mastodon_post_visibility" value="private" <?= $setting=="private" ? 'checked' : ''; ?>> <?=esc_html("Private");?>
@@ -261,7 +261,7 @@
         $setting = get_option('mastodon_post_format');
         // output the field
         ?>
-       
+
         <input type="radio" name="mastodon_post_format" value="0" <?= $setting=="" || $setting=="0" ? 'checked' : ''; ?>> <?php echo esc_html("Title") . " ".esc_html("Link")." ".esc_html("Hashtags");?><br>
         <input type="radio" name="mastodon_post_format" value="1" <?= $setting=="1" ? 'checked' : ''; ?>> <?php echo esc_html("Title") . " ".esc_html("Content")." ".esc_html("Link")." ".esc_html("Hashtags");?><br>
 
@@ -283,7 +283,7 @@
             "Mastodon Autopost Settings",
             esc_attr__('Mastodon Autopost Settings', 'autopost-to-mastodon'),
             "administrator",
-            "mastodon-settings-page", 
+            "mastodon-settings-page",
             'mastodon_settings_page'
         );
     }
@@ -298,16 +298,16 @@
 
 
 
-         
+
          /* add error/update messages
-         
+
          // check if the user have submitted the settings
          // wordpress will add the "settings-updated" $_GET parameter to the url
          if ( isset( $_GET['settings-updated'] ) ) {
          // add settings saved message with the class of "updated"
          add_settings_error( 'wporg_messages', 'wporg_message', __( 'Settings Saved', 'wporg' ), 'updated' );
          }
-         
+
          // show error/update messages
          settings_errors( 'wporg_messages' );*/
          ?>
@@ -320,7 +320,7 @@
                  // output setting sections and their fields
                  // (sections are registered for "wporg", each field is registered to a specific section)
                     do_settings_sections( 'mastodon-settings-page' );
-                    
+
                  // output save settings button
                     echo '<input name="submit" id="submit" class="button button-primary" value="'.esc_html__('Save Settings', 'autopost-to-mastodon').'" type="submit">';
                  //Test settings button
@@ -329,9 +329,9 @@
              </form>
          </div>
          <?php
-    }    
+    }
 
-//Register menu 
+//Register menu
     add_action('admin_menu', 'mastodon_menu');
 
 /*
@@ -339,7 +339,7 @@
     add_filter('plugin_action_links', 'mastodon_autopost_menu_shortcut', 10, 2);
 
 function mastodon_autopost_menu_shortcut($links, $file) {
-  
+
 
     if (is_admin()) {
         // The "page" query string value must be equal to the slug
