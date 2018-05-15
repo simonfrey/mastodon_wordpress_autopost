@@ -62,6 +62,15 @@ class mastodon_post_handler{
 		        $hashtags = get_option('mastodon_post_hashtags');
 		        $permalink = get_permalink( $ID );
 		        $content =  wp_trim_words($post->post_content);
+		        $post_tags = get_the_tags($post->ID);
+		        $post_tags_content = '';
+		        if ( $post_tags ) {
+				    foreach( $post_tags as $tag ) {
+				    	$post_tags_content =  $post_tags_content . '#'.  preg_replace('/\s+/', '',$tag->name). ' '  ; 
+				    }
+				    $post_tags_content = trim($post_tags_content);
+				}
+
 
 		    //Behavior
 		        $visibility = get_option('mastodon_post_visibility');
@@ -84,17 +93,18 @@ class mastodon_post_handler{
 								$titleLen = strlen($title);
 								$permaLinkLen = strlen($permalink);
 								$hashtagsLen = strlen($hashtags);
-								$contetMaxLen = 500 - 7 - $titleLen - $permaLinkLen - $hashtagsLen;
+								$posttagsLen = strlen($post_tags_content);
+								$contetMaxLen = 500 - 7 - $titleLen - $permaLinkLen - $posttagsLen - $hashtagsLen;
 
 								$shortContent = substr($content,0,$contetMaxLen);
 
-						        $postContentLong = $title . "\n". $shortContent." ...\n". $permalink."\n" . $hashtags;
+						        $postContentLong = $title . "\n". $shortContent." ...\n". $permalink . "\n" . $post_tags_content . "\n" . $hashtags;
 								$postContent = substr($postContentLong,0,500);
 							break;
 						
 						default:
 							//Only title and link
-								$postContentLong = $title . "\n" . $permalink . "\n" . $hashtags;
+								$postContentLong = $title . "\n" . $permalink . "\n" . $post_tags_content . "\n" . $hashtags;
 								$postContent = substr($postContentLong,0,500);
 								break;
 					}
