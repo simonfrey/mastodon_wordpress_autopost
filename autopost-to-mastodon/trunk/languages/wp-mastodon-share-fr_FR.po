@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastoshare\n"
+"POT-Creation-Date: 2017-07-23 18:22+0200\n"
+"PO-Revision-Date: 2017-07-23 18:23+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.10\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: form.tpl.php\n"
+"X-Poedit-SearchPath-1: mastoshare.php\n"
+
+#: form.tpl.php:21
+msgid "Mastodon Share Configuration"
+msgstr "Configuration de Mastodon Share"
+
+#: form.tpl.php:24
+msgid "Instance"
+msgstr "Instance Mastodon"
+
+#: form.tpl.php:31
+msgid "Obtain Access Key"
+msgstr "Obtenir une clé d'accès"
+
+#: form.tpl.php:39
+msgid "Access Key"
+msgstr "Clé d'accès"
+
+#: form.tpl.php:45
+msgid "Message"
+msgstr "Message"
+
+#: form.tpl.php:47
+msgid "You can use these metas in the message"
+msgstr "Vous pouvez utiliser ces metas dans le message"
+
+#: form.tpl.php:52
+msgid "Toot mode"
+msgstr "Mode de Pouet"
+
+#: form.tpl.php:54
+msgid "Public"
+msgstr "Public"
+
+#: form.tpl.php:55
+msgid "Unlisted"
+msgstr "Non listé"
+
+#: form.tpl.php:56
+msgid "Private"
+msgstr "Privé"
+
+#: form.tpl.php:57
+msgid "Direct"
+msgstr "Direct"
+
+#: form.tpl.php:62
+msgid "Toot size"
+msgstr "Taille du Pouet"
+
+#: form.tpl.php:63
+msgid "characters"
+msgstr "caractères"
+
+#: form.tpl.php:66
+msgid "Save configuration"
+msgstr "Sauvegarder la configuration"
+
+#: mastoshare.php:84
+msgid "Toot on Mastodon"
+msgstr "Publier sur Mastodon"
+
+#: mastoshare.php:122
+msgid "Sorry, can't send toot !"
+msgstr "Désolé impossible d'envoyer ce Pouet !"
+
+#: mastoshare.php:123
+msgid "Instance message"
+msgstr "Message de l'instance"
+
+#: mastoshare.php:133
+msgid "Toot successfully sent !"
+msgstr "Pouet envoyé avec succès !"

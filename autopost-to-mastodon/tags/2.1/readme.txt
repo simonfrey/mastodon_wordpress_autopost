@@ -3,7 +3,7 @@ Contributors: l1am0
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
 Tested up to: 4.9.2
-Stable tag: 2.0.4
+Stable tag: 2.10
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -47,6 +47,12 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 1. Mastodon Autopost settings page
 
 == Changelog ==
+
+= 2.1 =
+* Also toot post hashtags (Thanks to [jops](https://mastodon.bida.im/@jops))
+
+= 2.0.9 =
+* Added spanish translation
 
 = 2.0.4 =
 * Evaluates content HTML before tooting it
@@ -115,6 +121,7 @@ Thanks to
 *	[Flaticon](http://www.flaticon.com/free-icon/send_309395)- icon used in the logo (Flaticon Basis License)
 *	[Wikipedia](https://commons.wikimedia.org/wiki/File:msatodon-logo.svg) - Mastodon logo used in the logo (CC0)
 *	Bastien Ho & agentcobra - French translation and internationalization help
+*	jorgesumle - Spanish translation
 
 
 = Idea =

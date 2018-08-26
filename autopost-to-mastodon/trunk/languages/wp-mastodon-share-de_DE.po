@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastoshare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-23 18:22+0200\n"
+"PO-Revision-Date: 2018-01-18 00:11+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Eazy Po 0.9.5.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: form.tpl.php\n"
+"X-Poedit-SearchPath-1: mastoshare.php\n"
+
+#: form.tpl.php:21
+msgid "Mastodon Share Configuration"
+msgstr "Mastodon Share Konfiguration"
+
+#: form.tpl.php:24
+msgid "Instance"
+msgstr "Instanz"
+
+#: form.tpl.php:31
+msgid "Obtain Access Key"
+msgstr "Zugangsschlüssel einholen"
+
+#: form.tpl.php:39
+msgid "Access Key"
+msgstr "Zugangsschlüssel"
+
+#: form.tpl.php:45
+msgid "Message"
+msgstr "Nachricht"
+
+#: form.tpl.php:47
+msgid "You can use these metas in the message"
+msgstr "Du kannst diese Metas in der Nachricht nutzen"
+
+#: form.tpl.php:52
+msgid "Toot mode"
+msgstr "Tröt Modus"
+
+#: form.tpl.php:54
+msgid "Public"
+msgstr "Öffentlich"
+
+#: form.tpl.php:55
+msgid "Unlisted"
+msgstr "Nicht gelistet"
+
+#: form.tpl.php:56
+msgid "Private"
+msgstr "Privat"
+
+#: form.tpl.php:57
+msgid "Direct"
+msgstr "Direkt"
+
+#: form.tpl.php:62
+msgid "Toot size"
+msgstr "Tröt Größe"
+
+#: form.tpl.php:63
+msgid "characters"
+msgstr "Zeichen"
+
+#: form.tpl.php:66
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
+#: mastoshare.php:84
+msgid "Toot on Mastodon"
+msgstr "Tröt auf Mastodon"
+
+#: mastoshare.php:122
+msgid "Sorry, can't send toot !"
+msgstr "Entsschuldigung, Tröt kann nicht gesendet werden !"
+
+#: mastoshare.php:123
+msgid "Instance message"
+msgstr "Instanz Nachricht"
+
+#: mastoshare.php:133
+msgid "Toot successfully sent !"
+msgstr "Tröt erfolgreich gesendet !"
