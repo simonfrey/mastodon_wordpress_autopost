@@ -1,5 +1,12 @@
 ![Mastodon Autpost Wordpress Plugin banner](https://raw.githubusercontent.com/L1am0/mastodon_wordpress_autopost/master/graphics/banner.png)
 
+---
+
+Help me to grow this project:
+
+[![Donate Button](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/l1am0)
+
+---
 # Mastodon Wordpress Autopost Plugin
 A  Wordpress plugin that automatically posts your new articles to Mastodon
 
