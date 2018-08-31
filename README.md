@@ -4,7 +4,8 @@
 
 Help me to grow this project:
 
-[![Donate Button](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/l1am0)
+[![Donate Button](https://liberapay.com/assets/widgets/donate.svg)]((https://liberapay.com
+    /Mastodon-Auto-Share-Team/donate)
 
 ---
 # Mastodon Wordpress Autopost Plugin
@@ -50,5 +51,4 @@ Special thanks to [Chris Riding](http://www.chrisridings.com/gnu-social-wordpres
 
 ## Contact
 For any questions, do not hesitate to contact me:
-*	Mail: mastodonautopost@l1am0.eu
-* XMPP: l1am0@trashserver.net
+*	Mail: mastodonautopost@simon-frey.eu
