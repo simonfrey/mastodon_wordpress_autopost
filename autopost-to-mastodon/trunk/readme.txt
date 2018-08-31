@@ -1,10 +1,11 @@
 === Mastodon Autopost ===
-Contributors: l1am0
+Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
-Tested up to: 4.9.2
-Stable tag: 2.10
+Tested up to: 4.9.4
+Stable tag: 3.0
 License: GPLv2
+Donate link: https://liberapay.com/Mastodon-Auto-Share-Team/donate
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
 A Wordpress Plugin that automatically posts your new articles to Mastodon. The best: It is set and forget! 
@@ -13,24 +14,19 @@ A Wordpress Plugin that automatically posts your new articles to Mastodon. The b
 
 A Wordpress Plugin that automatically posts your new articles to Mastodon. The best: It is set and forget! 
  
-With GNUsocial Autopost your post always get automatically posted to your Mastodon account.
+With Mastodon Autopost your post always get automatically posted to your Mastodon account.
 
-There are two formats available: 
-Post title + Post URL + Hashtags
-Post title + Post Excerpt + Post URL + Hashtags
-
-Find the plugin settings: Settings > Mastodon Autpost Settings
+Find the plugin settings: Settings > Mastodon Autpost
 
 Just set your credentials and your post preference and lean back. The rest is done in the background and you don't have to care about it.
 
 For any questions, do not hesitate to contact me:
-*	Mail: mastodonautopost@l1am0.eu
-*	XMPP: l1am0@trashserver.net
+*	Mail: mastodonautopost@simon-frey.eu
 *	Mastodon: chaos.social/@l1am0
 
 Do you want to help translating this plugin in your language? [Visit the translation page](https://translate.wordpress.org/projects/wp-plugins/autopost-to-mastodon)
 
-Please consider donating via [Liberapay](https://liberapay.com/l1am0/donate) <3
+Please consider donating via [Liberapay](https://liberapay.com/Mastodon-Auto-Share-Team/donate) <3
 
 == Frequently Asked Questions ==
  
@@ -44,9 +40,15 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
  
 == Screenshots ==
  
-1. Mastodon Autopost settings page
+1. Welcome site if you are not logged in
+2. Basic settings
+3. Advanced settings
 
 == Changelog ==
+
+= 3.0 =
+* Adapt to the base code of [kernox](https://github.com/kernox/Mastodon-Share-for-WordPress)
+* More error handling
 
 = 2.1 =
 * Also toot post hashtags (Thanks to [jops](https://mastodon.bida.im/@jops))
@@ -112,8 +114,8 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
  
 == Credits ==
 
-= Mastodon PHP API =
-This project is using the [MastodonOAauthPHP libary](https://github.com/TheCodingCompany/MastodonOAuthPHP)
+= Kernox =
+This project is baseds on [hellexis Mastodon Share Plugin](https://github.com/kernox/Mastodon-Share-for-WordPress). We are currently working together on a new one to combine our workforce.
 
 = Graphics =
 Thanks to 
