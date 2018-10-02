@@ -386,7 +386,7 @@ class autopostToMastodon
 
 		$client = new Client($instance, $access_token);
 
-		if ( $thumb_url ) {
+		if ( $thumb_url && $thumb_path ) {
 
 			$attachment = $client->create_attachment( $thumb_path );
 
