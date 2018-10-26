@@ -473,7 +473,7 @@ class autopostToMastodon
 		$message_template = get_option( 'autopostToMastodon-message', "[title]\n[excerpt]\n[permalink]\n[tags]" );
 
 				//Replace title
-		$post_title = get_the_title( $id );
+		$post_title = html_entity_decode(get_the_title( $id ), ENT_COMPAT, 'UTF-8');
 		$message_template = str_replace("[title]", $post_title, $message_template);
 
 				//Replace permalink
