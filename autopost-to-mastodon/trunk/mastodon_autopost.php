@@ -3,7 +3,7 @@
 * Plugin Name: Mastodon Autopost
 * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
 * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
-* Version: 3.2.1
+* Version: 3.2.2
 * Author: L1am0
 * Author URI: http://www.simon-frey.eu
 * License: GPL2
@@ -477,7 +477,7 @@ class autopostToMastodon
 		$message_template = str_replace("[title]", $post_title, $message_template);
 
 				//Replace permalink
-		$post_permalink = get_the_permalink( $id , true);
+		$post_permalink = get_the_permalink( $id);
 		$message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
 				//Replace tags  
