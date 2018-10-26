@@ -492,14 +492,7 @@ class autopostToMastodon
 		$message_template = str_replace("[tags]", $post_tags_content, $message_template);
 
 				//Replace excerpt
-		$post_content_long = wp_trim_words($post->post_content);
-		$post_content_long = strip_shortcodes($post_content_long);
-		$post_content_long = html_entity_decode($post_content_long,ENT_COMPAT, 'UTF-8');
-		$post_content_long = str_replace("...", "",$post_content_long);
-
-		$excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
-
-		$post_excerpt = substr($post_content_long,0,$excerpt_len) ."[...]";
+		$post_excerpt = html_entity_decode(get_the_excerpt($post->ID), ENT_COMPAT, 'UTF-8');
 
 		$message_template = str_replace("[excerpt]", $post_excerpt, $message_template);
 
