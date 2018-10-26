@@ -481,7 +481,7 @@ class autopostToMastodon
 		$message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
 				//Replace tags  
-		$post_tags = get_the_tags($post->ID);
+		$post_tags = html_entity_decode(get_the_tags($post->ID ), ENT_COMPAT, 'UTF-8');
 		$post_tags_content = '';
 		if ( $post_tags ) {
 			foreach( $post_tags as $tag ) {
@@ -492,7 +492,9 @@ class autopostToMastodon
 		$message_template = str_replace("[tags]", $post_tags_content, $message_template);
 
 				//Replace excerpt
-		$post_content_long = wp_trim_words($post->post_content);
+		$post_content_long = html_entity_decode(wp_trim_words($post->post_content), ENT_COMPAT, 'UTF-8');
+		$post_content_long = str_replace("...", "",$post_content_long);
+
 		$excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
 
 		$post_excerpt = substr($post_content_long,0,$excerpt_len) ."[...]";
