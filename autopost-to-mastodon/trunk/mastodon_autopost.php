@@ -477,7 +477,7 @@ class autopostToMastodon
 		$message_template = str_replace("[title]", $post_title, $message_template);
 
 				//Replace permalink
-		$post_permalink = get_the_permalink( $id );
+		$post_permalink = get_the_permalink( $id , true);
 		$message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
 				//Replace tags  
