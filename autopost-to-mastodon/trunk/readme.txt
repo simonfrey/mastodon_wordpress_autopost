@@ -3,7 +3,7 @@ Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 3.1
+Stable tag: 3.2
 License: GPLv2
 Donate link: https://liberapay.com/Mastodon-Auto-Share-Team/donate
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,10 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 3. Advanced settings
 
 == Changelog ==
+
+= 3.2 =
+* Escape HTML codes in the toots (Thanks to [ojdo](https://github.com/ojdo))
+* Leave name for the the links to get nicer permalinks
 
 = 3.1 =
 * Avoid empty thumbnail path (Thanks to [ldidry](https://github.com/ldidry)) 
