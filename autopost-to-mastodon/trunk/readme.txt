@@ -49,7 +49,7 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 = 3.2.3 =
 * fixup for tags
 * remove hardcoded `[...]` from post excerpt
-* different excerpt function (Thanks to [jenniferlynparsons](https://github.com/jenniferlynparsons))
+* different excerpt function
 * Works with 5.0 and Gutenberg Editor
 
 = 3.2.2 =
