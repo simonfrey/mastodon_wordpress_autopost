@@ -2,8 +2,8 @@
 Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
-Tested up to: 4.9.4
-Stable tag: 3.2.2
+Tested up to: 5.0
+Stable tag: 3.2.3
 License: GPLv2
 Donate link: https://liberapay.com/Mastodon-Auto-Share-Team/donate
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,12 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 3. Advanced settings
 
 == Changelog ==
+
+= 3.2.3 =
+* fixup for tags
+* remove hardcoded `[...]` from post excerpt
+* different excerpt function (Thanks to [jenniferlynparsons](https://github.com/jenniferlynparsons))
+* Works with 5.0 and Gutenberg Editor
 
 = 3.2.2 =
 * revert change

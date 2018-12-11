@@ -3,7 +3,7 @@
 * Plugin Name: Mastodon Autopost
 * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
 * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
-* Version: 3.2.2
+* Version: 3.2.3
 * Author: L1am0
 * Author URI: http://www.simon-frey.eu
 * License: GPL2
@@ -481,25 +481,27 @@ class autopostToMastodon
 		$message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
 				//Replace tags  
-		$post_tags = html_entity_decode(get_the_tags($post->ID ), ENT_COMPAT, 'UTF-8');
+		$post_tags = get_tags($post->ID);
+		
+		if (sizeof($post_tags) > 0){
 		$post_tags_content = '';
 		if ( $post_tags ) {
 			foreach( $post_tags as $tag ) {
-				$post_tags_content =  $post_tags_content . '#'.  preg_replace('/\s+/', '',$tag->name). ' '  ; 
+				$post_tags_content =  $post_tags_content . '#'.  preg_replace('/\s+/', '',html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')). ' '  ; 
 			}
 			$post_tags_content = trim($post_tags_content);
 		}
-		$message_template = str_replace("[tags]", $post_tags_content, $message_template);
-
+			$message_template = str_replace("[tags]", $post_tags_content, $message_template);
+		}
 				//Replace excerpt
 		$post_content_long = wp_trim_words($post->post_content);
 		$post_content_long = strip_shortcodes($post_content_long);
 		$post_content_long = html_entity_decode($post_content_long,ENT_COMPAT, 'UTF-8');
-		$post_content_long = str_replace("...", "",$post_content_long);
+		//$post_content_long = str_replace("...", "",$post_content_long);
 
 		$excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
 
-		$post_excerpt = substr($post_content_long,0,$excerpt_len) ."[...]";
+		$post_excerpt = substr($post_content_long,0,$excerpt_len);
 
 		$message_template = str_replace("[excerpt]", $post_excerpt, $message_template);
 
