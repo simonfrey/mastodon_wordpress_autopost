@@ -493,8 +493,10 @@ class autopostToMastodon
 		}
 			$message_template = str_replace("[tags]", $post_tags_content, $message_template);
 		}
-				//Replace excerpt
-		$post_content_long = wp_trim_words($post->post_content);
+		
+		//Replace excerpt
+		$post_content_long = excerpt_remove_blocks( $post->post_content );
+		$post_content_long = wp_strip_all_tags($post_content_long);
 		$post_content_long = strip_shortcodes($post_content_long);
 		$post_content_long = html_entity_decode($post_content_long,ENT_COMPAT, 'UTF-8');
 		//$post_content_long = str_replace("...", "",$post_content_long);
