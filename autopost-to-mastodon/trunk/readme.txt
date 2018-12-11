@@ -26,7 +26,7 @@ For any questions, do not hesitate to contact me:
 
 Do you want to help translating this plugin in your language? [Visit the translation page](https://translate.wordpress.org/projects/wp-plugins/autopost-to-mastodon)
 
-Please consider donating via [Liberapay](https://liberapay.com/Mastodon-Auto-Share-Team/donate) <3
+Please consider donating via [Patreon](https://patreon.com/simonfrey) or [Liberapay](https://liberapay.com/Mastodon-Auto-Share-Team/donate) <3
 
 == Frequently Asked Questions ==
  
@@ -51,6 +51,7 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 * remove hardcoded `[...]` from post excerpt
 * different excerpt function
 * Works with 5.0 and Gutenberg Editor
+* Create future toot the moment it gets tooted (not upfront)
 
 = 3.2.2 =
 * revert change

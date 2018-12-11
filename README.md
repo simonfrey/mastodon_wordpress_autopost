@@ -4,7 +4,10 @@
 
 Help me to grow this project:
 
-[![Donate Button](https://liberapay.com/assets/widgets/donate.svg)]((https://liberapay.com
+[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png
+)]((https://patreon.com/simonfrey)
+
+[![Liberapay](https://liberapay.com/assets/widgets/donate.svg)]((https://liberapay.com
     /Mastodon-Auto-Share-Team/donate)
 
 ---
