@@ -3,9 +3,9 @@ Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
 Tested up to: 5.0
-Stable tag: 3.2.5
+Stable tag: 3.2.4
 License: GPLv2
-Donate link: https://patreon.com/simonfrey
+Donate link: https://liberapay.com/Mastodon-Auto-Share-Team/donate
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
 A Wordpress Plugin that automatically posts your new articles to Mastodon. The best: It is set and forget! 
@@ -45,10 +45,6 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 3. Advanced settings
 
 == Changelog ==
-
-
-= 3.2.5 =
-* 5.0 Fix: Post only the tags of the post
 
 = 3.2.4 =
 * Add version check to prevent call to undefined 5.0 function
