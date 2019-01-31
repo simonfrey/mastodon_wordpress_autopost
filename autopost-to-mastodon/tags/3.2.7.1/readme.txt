@@ -3,7 +3,7 @@ Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
 Tested up to: 5.0
-Stable tag: 3.2.7
+Stable tag: 3.2.7.1
 License: GPLv2
 Donate link: https://patreon.com/simonfrey
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -46,12 +46,8 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 
 == Changelog ==
 
-= 3.2.7 =
-* Auth workflow change
-
-= 3.2.6 =
-* Change permission for settings page to manage_options
-
+= 3.2.7.1 =
+* Revert change
 = 3.2.5 =
 * 5.0 Fix: Post only the tags of the post
 
