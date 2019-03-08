@@ -505,9 +505,9 @@ class autopostToMastodon
         $post_content_long = html_entity_decode($post_content_long, ENT_COMPAT, 'UTF-8');
         //$post_content_long = str_replace("...", "",$post_content_long);
 
-        $excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
+        $excerpt_len = $toot_size - strlen($message_template) + 9 - 5 - 1;
 
-        $post_excerpt = substr($post_content_long, 0, $excerpt_len);
+        $post_excerpt = substr($post_content_long, 0, $excerpt_len) . '…';
 
         $message_template = str_replace("[excerpt]", $post_excerpt, $message_template);
 
