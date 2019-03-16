@@ -507,6 +507,11 @@ class autopostToMastodon
 
         $excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
 
+        //Replace with the excerpt of the post
+        $post_optional_excerpt = get_the_excerpt($id);
+        if (strlen($post_optional_excerpt)>0){
+            $post_content_long = $post_optional_excerpt;
+        }
         $post_excerpt = substr($post_content_long, 0, $excerpt_len);
 
         $message_template = str_replace("[excerpt]", $post_excerpt, $message_template);
