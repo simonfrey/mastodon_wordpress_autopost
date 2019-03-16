@@ -338,13 +338,13 @@ class autopostToMastodon
                     update_post_meta($id, 'autopostToMastodon-post-status', 'off');
 
                     add_action('admin_notices', 'autopostToMastodon_notice_toot_success');
-                    if (isset($toot->error)) {
+                    if (isset($toot->errors)) {
                         update_option(
                             'autopostToMastodon-notice',
                             serialize(
                                 array(
                                     'message' => '<strong>Mastodon Autopost</strong> : ' . __('Sorry, can\'t send toot !', 'autopost-to-mastodon') .
-                                    '<p><strong>' . __('Instance message', 'autopost-to-mastodon') . '</strong> : ' . $toot->error . '</p>',
+                                    '<p><strong>' . __('Instance message', 'autopost-to-mastodon') . '</strong> : ' . json_encode($toot->errors) . '</p>',
                                     'class' => 'error',
                                 )
                             )
