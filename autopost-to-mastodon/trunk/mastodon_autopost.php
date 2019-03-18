@@ -338,13 +338,13 @@ class autopostToMastodon
                     update_post_meta($id, 'autopostToMastodon-post-status', 'off');
 
                     add_action('admin_notices', 'autopostToMastodon_notice_toot_success');
-                    if (isset($toot->error)) {
+                    if (isset($toot->errors)) {
                         update_option(
                             'autopostToMastodon-notice',
                             serialize(
                                 array(
                                     'message' => '<strong>Mastodon Autopost</strong> : ' . __('Sorry, can\'t send toot !', 'autopost-to-mastodon') .
-                                    '<p><strong>' . __('Instance message', 'autopost-to-mastodon') . '</strong> : ' . $toot->error . '</p>',
+                                    '<p><strong>' . __('Instance message', 'autopost-to-mastodon') . '</strong> : ' . json_encode($toot->errors) . '</p>',
                                     'class' => 'error',
                                 )
                             )
@@ -507,6 +507,11 @@ class autopostToMastodon
 
         $excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
 
+        //Replace with the excerpt of the post
+        $post_optional_excerpt = get_the_excerpt($id);
+        if (strlen($post_optional_excerpt)>0){
+            $post_content_long = $post_optional_excerpt;
+        }
         $post_excerpt = substr($post_content_long, 0, $excerpt_len);
 
         $message_template = str_replace("[excerpt]", $post_excerpt, $message_template);

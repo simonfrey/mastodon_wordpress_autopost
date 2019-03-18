@@ -126,9 +126,15 @@ class Client
 		);
 
 		$response = wp_remote_post( $this->getValidURL($url), $args );
+		if ( is_wp_error( $response ) ) {
+		    $error_message = $response->get_error_message();
+		    
+		} else {
 		$responseBody = wp_remote_retrieve_body($response);
-
 		return json_decode($responseBody);
+	}
+
+		return $response;
 	}
 
 	public function get($url, $data = array(), $headers = array()) {
@@ -136,11 +142,16 @@ class Client
 		    'headers' => $headers,
 		    'redirection' => 5
 		);
-
 		$response = wp_remote_get( $this->getValidURL($url), $args );
-		$responseBody = wp_remote_retrieve_body($response);
+		if ( is_wp_error( $response ) ) {
+		    $error_message = $response->get_error_message();
 
-		return json_decode($responseBody);
+		} else {
+		$responseBody = wp_remote_retrieve_body($response);
+		    return json_decode($responseBody);
+		}
+
+		return $response;
 	}
 
 	public function dump($value){
