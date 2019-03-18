@@ -3,7 +3,7 @@
  * Plugin Name: Mastodon Autopost
  * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
  * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
- * Version: 3.2.7.1
+ * Version: 3.2.8
  * Author: L1am0
  * Author URI: http://www.simon-frey.eu
  * License: GPL2
@@ -169,6 +169,11 @@ class autopostToMastodon
 
         if (isset($_POST['save'])) {
 
+        if (!empty($token)) {
+            $client = new Client($instance);
+            $account = $client->verify_credentials($token);
+        }
+
             $is_valid_nonce = wp_verify_nonce($_POST['_wpnonce'], 'autopostToMastodon-configuration');
 
             if ($is_valid_nonce) {
@@ -176,10 +181,12 @@ class autopostToMastodon
                 $message = stripslashes($_POST['message']);
                 $content_warning = $_POST['content_warning'];
 
+                if (is_null($client)){
+
                 $client = new Client($instance);
                 $redirect_url = get_admin_url();
                 $auth_url = $client->register_app($redirect_url);
-
+                }
                 if ($auth_url == "ERROR") {
                     update_option(
                         'autopostToMastodon-notice',
@@ -248,10 +255,6 @@ class autopostToMastodon
 
         $instance = get_option('autopostToMastodon-instance');
 
-        if (!empty($token)) {
-            $client = new Client($instance);
-            $account = $client->verify_credentials($token);
-        }
 
         $message = get_option('autopostToMastodon-message', "[title]\n[excerpt]\n[permalink]\n[tags]");
         $mode = get_option('autopostToMastodon-mode', 'public');
@@ -484,7 +487,7 @@ class autopostToMastodon
         //Replace tags
         $post_tags = get_the_tags($id);
 
-        if (sizeof($post_tags) > 0) {
+        if ($post_tags) {
             $post_tags_content = '';
             if ($post_tags) {
                 foreach ($post_tags as $tag) {
