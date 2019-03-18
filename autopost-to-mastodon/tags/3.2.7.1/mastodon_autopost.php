@@ -142,7 +142,7 @@ class autopostToMastodon
             'Mastodon Autopost',
             'manage_options',
             'autopost-to-mastodon',
-            array($this, 'show_configuration_page')
+            array($this, 'manage_options')
         );
     }
 
