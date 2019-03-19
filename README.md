@@ -18,11 +18,6 @@ You can install the current stable version via the [Wordpress Plugin Repository]
 [How to install a Wordpress plugin via the Plugin Repository](http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/)
 
 ## Features
-* Add accounts 
-  * Mastodon Node
-  * Username
-  * Password
-  * **All this settings stay on your server! They never get transmitted anywhere**
 * Autopost
   * Post on any update (also if you change posts)
   * Only post on new post
