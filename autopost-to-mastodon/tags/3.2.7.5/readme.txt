@@ -2,8 +2,8 @@
 Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
-Tested up to: 5.1.1
-Stable tag: 3.2.8
+Tested up to: 5.0
+Stable tag: 3.2.7.5
 License: GPLv2
 Donate link: https://patreon.com/simonfrey
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,10 +29,6 @@ Do you want to help translating this plugin in your language? [Visit the transla
 Please consider donating via [Patreon](https://patreon.com/simonfrey), [PayPal](https://paypal.me/51edpo) or [Liberapay](https://liberapay.com/Mastodon-Auto-Share-Team/donate) <3
 
 == Frequently Asked Questions ==
-
-= If my post is to long and gets cut in the middle of a word. Can you add '...'? =
-
-You can add the dots '...' yourself. Just open the advanced settings and there you cann add them after the post_excerpt. Every own text you define in there will be automatically added to your toots.
  
 = Can I decide per post if I want to autopost it? =
  
@@ -50,15 +46,15 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 
 == Changelog ==
 
+= 3.2.7.5 =
+* Revert changes
 
-= 3.2.8 =
-* Bugfix with the error message (Thanks to [jooops](https://github.com/jooops))
-* Remove sizeof() around post_tags check to prevent error in PHP7.2
-* No reauthenication on settings save
-* Narrowed down the authorization scope of the plugin. ("write:statuses write:media read:accounts") 
+= 3.2.7 =
+* Auth workflow change
 
-= 3.2.7.1 =
-* Revert change
+= 3.2.6 =
+* Change permission for settings page to manage_options
+
 = 3.2.5 =
 * 5.0 Fix: Post only the tags of the post
 

@@ -15,7 +15,7 @@ class Client
 		$response = $this->_post('/api/v1/apps', array(
 			'client_name' => 'Mastodon Share for WordPress',
 			'redirect_uris' => $redirect_uri,
-			'scopes' => 'write:statuses write:media read:accounts',
+			'scopes' => 'read write',
 			'website' => $this->instance_url
 		));
 
@@ -29,8 +29,8 @@ class Client
 
 		$params = http_build_query(array(
 			'response_type' => 'code',
+			'scope' => 'read write',
 			'redirect_uri' => $redirect_uri,
-			'scope' => 'write:statuses write:media read:accounts',
 			'client_id' =>$this->app->client_id
 		));
 
@@ -126,15 +126,9 @@ class Client
 		);
 
 		$response = wp_remote_post( $this->getValidURL($url), $args );
-		if ( is_wp_error( $response ) ) {
-		    $error_message = $response->get_error_message();
-		    
-		} else {
 		$responseBody = wp_remote_retrieve_body($response);
-		return json_decode($responseBody);
-	}
 
-		return $response;
+		return json_decode($responseBody);
 	}
 
 	public function get($url, $data = array(), $headers = array()) {
@@ -142,16 +136,11 @@ class Client
 		    'headers' => $headers,
 		    'redirection' => 5
 		);
+
 		$response = wp_remote_get( $this->getValidURL($url), $args );
-		if ( is_wp_error( $response ) ) {
-		    $error_message = $response->get_error_message();
-
-		} else {
 		$responseBody = wp_remote_retrieve_body($response);
-		    return json_decode($responseBody);
-		}
 
-		return $response;
+		return json_decode($responseBody);
 	}
 
 	public function dump($value){

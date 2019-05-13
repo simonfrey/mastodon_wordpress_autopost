@@ -3,7 +3,7 @@
  * Plugin Name: Mastodon Autopost
  * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
  * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
- * Version: 3.2.8
+ * Version: 3.2.7.5
  * Author: L1am0
  * Author URI: http://www.simon-frey.eu
  * License: GPL2
@@ -116,7 +116,7 @@ class autopostToMastodon
             wp_enqueue_script('settings_page', $plugin_url . 'js/settings_page.js', array('jquery'), $infos['Version'], true);
 
         }
-        if (in_array($pagenow, ['post-new.php', 'post.php'])) {
+        if (in_array($pagenow, array('post-new.php', 'post.php'))) {
             $plugin_url = plugin_dir_url(__FILE__);
             wp_enqueue_script('toot_editor', $plugin_url . 'js/toot_editor.js', array('jquery'), $infos['Version'], true);
 
@@ -338,13 +338,13 @@ class autopostToMastodon
                     update_post_meta($id, 'autopostToMastodon-post-status', 'off');
 
                     add_action('admin_notices', 'autopostToMastodon_notice_toot_success');
-                    if (isset($toot->errors)) {
+                    if (isset($toot->error)) {
                         update_option(
                             'autopostToMastodon-notice',
                             serialize(
                                 array(
                                     'message' => '<strong>Mastodon Autopost</strong> : ' . __('Sorry, can\'t send toot !', 'autopost-to-mastodon') .
-                                    '<p><strong>' . __('Instance message', 'autopost-to-mastodon') . '</strong> : ' . json_encode($toot->errors) . '</p>',
+                                    '<p><strong>' . __('Instance message', 'autopost-to-mastodon') . '</strong> : ' . $toot->error . '</p>',
                                     'class' => 'error',
                                 )
                             )
@@ -427,7 +427,7 @@ class autopostToMastodon
             'autopostToMastodon_metabox',
             'Mastodon Autopost',
             array($this, 'metabox'),
-            ['post', 'page'],
+            array('post', 'page'),
             'side',
             'high'
         );
@@ -507,11 +507,6 @@ class autopostToMastodon
 
         $excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
 
-        //Replace with the excerpt of the post
-        $post_optional_excerpt = get_the_excerpt($id);
-        if (strlen($post_optional_excerpt)>0){
-            $post_content_long = $post_optional_excerpt;
-        }
         $post_excerpt = substr($post_content_long, 0, $excerpt_len);
 
         $message_template = str_replace("[excerpt]", $post_excerpt, $message_template);
