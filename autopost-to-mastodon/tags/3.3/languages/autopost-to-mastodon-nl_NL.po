@@ -1,0 +1,110 @@
+msgid "Mastodon Autopost Configuration"
+msgstr "Mastodon Autopost Configuratie"
+
+msgid "Simple configuration"
+msgstr "Eenvoudige configuratie"
+
+msgid "Advanced configuration"
+msgstr "Uitgebreide configuratie"
+
+msgid "Instance"
+msgstr "Instantie"
+
+msgid "Connected as"
+msgstr "Verbonden als"
+
+msgid "Connect to Mastodon"
+msgstr "Met Mastodon verbinden"
+
+msgid "Disconnect"
+msgstr "Loskoppelen"
+
+msgid "Send test toot"
+msgstr "Test Toot verzenden"
+
+msgid "Disconnected"
+msgstr "Losgekoppeld"
+
+msgid "Default Content Warning"
+msgstr "Standaard Content Waarschuwing"
+
+msgid "and"
+msgstr "en"
+
+msgid "You can use these metas in the message"
+msgstr "U kunt de volgende meta's in het bericht gebruiken"
+
+msgid "Save configuration"
+msgstr "Configuratie opslaan"
+
+msgid "Autopost new posts"
+msgstr "Nieuwe berichten automatisch plaatsen"
+
+msgid "Authentification, please wait"
+msgstr "Even geduld alstublieft"
+
+msgid "Toot mode"
+msgstr "Toot modus"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Toot size"
+msgstr "Toot lengte"
+
+msgid "Can't log you in."
+msgstr "Inloggen werkte niet."
+
+msgid "Please login to your mastodon account!"
+msgstr "Meld u aan bij uw Mastodon-account!"
+
+msgid "Go to Mastodon Autopost Settings"
+msgstr "Naar de instellingen van Mastopost Autopost gaan"
+
+msgid "Instance message"
+msgstr "Instantie bericht"
+
+msgid "The given instance url belongs to no valid mastodon instance !"
+msgstr "De ingevoerde URL is geen geldige Mastodon-instantie!"
+
+msgid "Thank you to set your Mastodon instance before connect !"
+msgstr "Bedankt voor het configureren van de Mastodon instantie!"
+
+msgid "Redirect to "
+msgstr "Doorsturen naar "
+
+msgid "Configuration successfully saved !"
+msgstr "Configuratie is succesvol opgeslagen!"
+
+msgid "Toot saved for schedule !"
+msgstr "Toot opgeslagen voor de toekomst!"
+
+msgid "This is my first post with Mastodon Autopost for Wordpress"
+msgstr "Dit is mijn eerste bericht met Mastodon Autopost voor Wordpress"
+
+msgid "Sorry, can't send toot !"
+msgstr "Verontschuldigingen, de toot kan niet worden verzonden!"
+
+msgid "Toot successfully sent !"
+msgstr "Toot succesvol verzonden!"
+
+msgid "Toot on Mastodon"
+msgstr "Autopost op Mastodon"
+
+msgid "Public"
+msgstr "Openbaar"
+
+msgid "Unlisted"
+msgstr "Minder openbaar"
+
+msgid "Private"
+msgstr "Alleen volgers"
+
+msgid "Direct"
+msgstr "Direct"
+
+msgid "characters"
+msgstr "tekens"
+
+msgid "View Toot"
+msgstr "Bekijk Toot"
