@@ -140,7 +140,7 @@ class autopostToMastodon
         add_options_page(
             'Mastodon Autopost',
             'Mastodon Autopost',
-            'install_plugins',
+            'manage_options',
             'autopost-to-mastodon',
             array($this, 'show_configuration_page')
         );
