@@ -125,6 +125,15 @@ define("ADVANCED_VIEW",false);
 						<input type="checkbox" id="autopost_standard" name="autopost_standard" value="on"  <?php echo ( $autopost  == 'on')?'checked':''; ?>>
 					</td>
 				</tr>
+
+				<tr style="display:<?php echo ACCOUNT_CONNECTED ? "block" : "none"?>">
+					<th scope="row">
+						<label for="cats_as_tags"><?php esc_html_e( 'Use categories as tags', 'autopost-to-mastodon' ); ?></label>
+					</th>
+					<td>
+						<input type="checkbox" id="cats_as_tags" name="cats_as_tags" value="on"  <?php echo ( $cats_as_tags  == 'on')?'checked':''; ?>>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 
