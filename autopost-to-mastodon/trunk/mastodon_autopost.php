@@ -479,7 +479,7 @@ class autopostToMastodon
         $message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
         //Replace tags
-        $post_tagss_content = '';
+        $post_tags_content = '';
 
         $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'off');
         if ($cats_as_tags == 'on') {
