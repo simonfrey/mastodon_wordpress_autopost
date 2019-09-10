@@ -208,6 +208,12 @@ class autopostToMastodon
                             update_option('autopostToMastodon-postOnStandard', 'off');
                         }
 
+                        if (isset($_POST['cats_as_tags'])) {
+                            update_option('autopostToMastodon-catsAsTags', 'on');
+                        } else {
+                            update_option('autopostToMastodon-catsAsTags', 'off');
+                        }
+
                         update_option('autopostToMastodon-content-warning', sanitize_textarea_field($content_warning));
 
                         $account = $client->verify_credentials($token);
@@ -248,6 +254,7 @@ class autopostToMastodon
         $toot_size = get_option('autopostToMastodon-toot-size', 500);
         $content_warning = get_option('autopostToMastodon-content-warning', '');
         $autopost = get_option('autopostToMastodon-postOnStandard', 'on');
+        $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'on');
 
         include 'form.tpl.php';
     }
@@ -472,10 +479,21 @@ class autopostToMastodon
         $message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
         //Replace tags
+        $post_tags_content = '';
+
+        $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'off');
+        if ($cats_as_tags == 'on') {
+            $post_cats = get_the_category($id);
+            if (sizeof($post_cats) > 0 && $post_cats) {
+                foreach ($post_cats as $cat) {
+                    $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($cat->name, ENT_COMPAT, 'UTF-8')) . ' ';
+                }
+            }
+        }
+
         $post_tags = get_the_tags($id);
 
         if (sizeof($post_tags) > 0) {
-            $post_tags_content = '';
             if ($post_tags) {
                 foreach ($post_tags as $tag) {
                     $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')) . ' ';
