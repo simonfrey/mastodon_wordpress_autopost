@@ -3,7 +3,7 @@
  * Plugin Name: Mastodon Autopost
  * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
  * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
- * Version: 3.5
+ * Version: 3.3.3
  * Author: L1am0
  * Author URI: http://www.simon-frey.eu
  * License: GPL2
@@ -116,6 +116,16 @@ class autopostToMastodon
             wp_enqueue_script('settings_page', $plugin_url . 'js/settings_page.js', array('jquery'), $infos['Version'], true);
 
         }
+        if (in_array($pagenow, ['post-new.php', 'post.php'])) {
+            $plugin_url = plugin_dir_url(__FILE__);
+            wp_enqueue_script('toot_editor', $plugin_url . 'js/toot_editor.js', array('jquery'), $infos['Version'], true);
+
+            $title_nonce = wp_create_nonce('mastodonNonce');
+            wp_localize_script('toot_editor', 'ajax_obj', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => $title_nonce,
+            ));
+        }
     }
 
     /**
@@ -208,13 +218,6 @@ class autopostToMastodon
                             update_option('autopostToMastodon-postOnStandard', 'off');
                         }
 
-
-                        if (isset($_POST['cats_as_tags'])) {
-                            update_option('autopostToMastodon-catsAsTags', 'on');
-                        } else {
-                            update_option('autopostToMastodon-catsAsTags', 'off');
-                        }
-
                         update_option('autopostToMastodon-content-warning', sanitize_textarea_field($content_warning));
 
                         $account = $client->verify_credentials($token);
@@ -255,7 +258,6 @@ class autopostToMastodon
         $toot_size = get_option('autopostToMastodon-toot-size', 500);
         $content_warning = get_option('autopostToMastodon-content-warning', '');
         $autopost = get_option('autopostToMastodon-postOnStandard', 'on');
-        $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'on');
 
         include 'form.tpl.php';
     }
@@ -480,53 +482,41 @@ class autopostToMastodon
         $message_template = str_replace("[permalink]", $post_permalink, $message_template);
 
         //Replace tags
-        $post_tags_content = '';
-        $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'off');
-        if ($cats_as_tags == 'on') {
-            $post_cats = get_the_category($id);
-            if (sizeof($post_cats) > 0 && $post_cats) {
-                foreach ($post_cats as $cat) {
-                    $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($cat->name, ENT_COMPAT, 'UTF-8')) . ' ';
-                }
-            }
-        }
-
         $post_tags = get_the_tags($id);
+
         if (sizeof($post_tags) > 0) {
+            $post_tags_content = '';
             if ($post_tags) {
                 foreach ($post_tags as $tag) {
                     $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')) . ' ';
                 }
                 $post_tags_content = trim($post_tags_content);
             }
+            $message_template = str_replace("[tags]", $post_tags_content, $message_template);
         }
-        $message_template = str_replace("[tags]", $post_tags_content, $message_template);
 
         //Replace excerpt
-        //Replace with the excerpt of the post
-        $post_optional_excerpt = $post->post_excerpt;
-        if (strlen($post_optional_excerpt) > 0) {
-            $post_content_long = $post_optional_excerpt;
-        } else {
-            $post_content_long = $post->post_content;
-        }
-        if ($wp_version[0] == "5") {
+        $post_content_long = $post->post_content;
+        if ($wp_version[0] == "5"){
             $post_content_long = excerpt_remove_blocks($post_content_long);
         }
-        $post_content_long = strip_shortcodes($post_content_long);
+        $post_content_long = strip_shortcodes($post_content_long);        
         $post_content_long = html_entity_decode($post_content_long, ENT_COMPAT, 'UTF-8');
         $post_content_long = wp_strip_all_tags($post_content_long);
         //$post_content_long = str_replace("...", "",$post_content_long);
 
         $excerpt_len = $toot_size - strlen($message_template) + 9 - 5;
 
-        mb_internal_encoding("UTF-8");
-      
-        $post_excerpt = mb_substr($post_content_long, 0, $excerpt_len);
+        //Replace with the excerpt of the post
+        $post_optional_excerpt = get_the_excerpt($id);
+        if (strlen($post_optional_excerpt)>0){
+            $post_content_long = $post_optional_excerpt;
+        }
+        $post_excerpt = substr($post_content_long, 0, $excerpt_len);
 
         $message_template = str_replace("[excerpt]", $post_excerpt, $message_template);
 
-        return mb_substr($message_template, 0, $toot_size);
+        return substr($message_template, 0, $toot_size);
     }
 
     private function sendTestToot()

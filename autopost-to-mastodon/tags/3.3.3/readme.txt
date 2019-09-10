@@ -2,8 +2,8 @@
 Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
-Tested up to: 5.2.1
-Stable tag: 3.5
+Tested up to: 5.0
+Stable tag: 3.3.3
 License: GPLv2
 Donate link: https://patreon.com/simonfrey
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -46,14 +46,6 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 
 == Changelog ==
 
-= 3.5 =
-* Use categorys as hashtags on posts (Thanks to [rseabra](https://github.com/rseabra))
-
-= 3.4 =
-* Fix for the manual added excerpt to also get encoded and remove html tags
-
-= 3.3.4 =
-* Remove toot editor javascript as we do not have a toot editor anymore
 
 = 3.3.3 =
 * Change permission for settings pages
