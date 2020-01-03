@@ -133,7 +133,30 @@ define("ADVANCED_VIEW",false);
 					<td>
 						<input type="checkbox" id="autopost_standard" name="autopost_standard" value="on"  <?php echo ( $autopost  == 'on')?'checked':''; ?>>
 					</td>
-				</tr>
+                </tr>
+                <tr style="display:<?php echo ACCOUNT_CONNECTED ? "block" : "none"?>">
+					<th scope="row">
+						<label for="post_types"><?php esc_html_e( 'Choose active post types', 'autopost-to-mastodon' ); ?></label>
+                    </th>
+                    <td>
+                        <fieldset id="post_types">
+<?php
+    // get all post types
+    $args = array(
+       'public'   => true,
+       // '_builtin' => false,
+    );
+    $output = 'objects';
+    $operator = 'and';
+    $wp_post_types = get_post_types( $args, $output, $operator );
+    foreach ( $wp_post_types  as $post_type ) {
+        $checked = ($post_types[$post_type->name] == 'on')?'checked':'';
+        echo "<label for=\"" . $post_type->name . "\"><input type=\"checkbox\" id=\"" . $post_type->name . "\" name=\"" . $post_type->name . "\"" . $checked . " />" . $post_type->label . "</label></br>";
+    }
+?>
+                        </fieldset>
+                    </td>
+                </tr>
 			</tbody>
 		</table>
 
