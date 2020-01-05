@@ -273,7 +273,7 @@ class autopostToMastodon
         $content_warning = get_option('autopostToMastodon-content-warning', '');
         $autopost = get_option('autopostToMastodon-postOnStandard', 'on');
         $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'on');
-        $post_types = new stdClass();
+        $post_types = [];
 
         // get all post types
         $args = array(
@@ -281,11 +281,11 @@ class autopostToMastodon
         );
         $output = 'names';
         $operator = 'and';
-        $post_types = get_post_types( $args, $output, $operator );
+        $wp_post_types = get_post_types( $args, $output, $operator );
 
         // add form context data for post type options
-        foreach ( $post_types  as $post_type ) {
-            $post_types[$post_type] = get_option("autopostToMastodon-post_types-$post_type", 'off');
+        foreach ( $wp_post_types  as $post_type ) {
+            $post_types[$post_type] = get_option("autopostToMastodon-post_types-$post_type", 'on');
         }
 
         include 'form.tpl.php';
@@ -463,10 +463,9 @@ class autopostToMastodon
 
         // add form context data for post type options
         foreach ( $post_types  as $post_type ) {
-            if (get_option("autopostToMastodon-post_types-$post_type", 'off') == 'on') {
+            if (get_option("autopostToMastodon-post_types-$post_type", 'on') == 'on') {
                 array_push($active_post_types, $post_type);
             }
-            $post_types[$post_type] = get_option("autopostToMastodon-post_types-$post_type", 'off');
         }
 
         // empty array activates everywhere -> check
