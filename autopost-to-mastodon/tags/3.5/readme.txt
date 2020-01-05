@@ -2,10 +2,10 @@
 Contributors: l1am0, Hellexis
 Tags: mastodon, Mastodon, Mastdon Autopost, federated web, GNU social, statusnet, social web, social media, auto post
 Requires at least: 4.6
-Tested up to: 5.3.2
-Stable tag: 3.6
+Tested up to: 5.2.1
+Stable tag: 3.5
 License: GPLv2
-Donate link: https://paypal.me/51edpo
+Donate link: https://patreon.com/simonfrey
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
 A Wordpress Plugin that automatically posts your new articles to Mastodon. The best: It is set and forget! 
@@ -26,7 +26,7 @@ For any questions, do not hesitate to contact me:
 
 Do you want to help translating this plugin in your language? [Visit the translation page](https://translate.wordpress.org/projects/wp-plugins/autopost-to-mastodon)
 
-Please consider donating via [PayPal](https://paypal.me/51edpo) <3
+Please consider donating via [Patreon](https://patreon.com/simonfrey), [PayPal](https://paypal.me/51edpo) or [Liberapay](https://liberapay.com/Mastodon-Auto-Share-Team/donate) <3
 
 == Frequently Asked Questions ==
  
@@ -45,9 +45,6 @@ The plugin never transmits any data to me, or anyone else than the mastodon node
 3. Advanced settings
 
 == Changelog ==
-
-= 3.6 =
-* Allow the plugin to work on custom post types (Thanks to [unicode-it](https://github.com/unicode-it))
 
 = 3.5 =
 * Use categorys as hashtags on posts (Thanks to [rseabra](https://github.com/rseabra))

@@ -3,9 +3,9 @@
  * Plugin Name: Mastodon Autopost
  * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
  * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
- * Version: 3.6
+ * Version: 3.5
  * Author: L1am0
- * Author URI: https://www.simon-frey.eu
+ * Author URI: http://www.simon-frey.eu
  * License: GPL2
  * Text Domain: autopost-to-mastodon
  * Domain Path: /languages
@@ -215,23 +215,6 @@ class autopostToMastodon
                             update_option('autopostToMastodon-catsAsTags', 'off');
                         }
 
-                        // get all post types
-                        $args = array(
-                           'public'   => true,
-                        );
-                        $output = 'names';
-                        $operator = 'and';
-                        $post_types = get_post_types( $args, $output, $operator );
-                        // check post for content type configs
-                        foreach ( $post_types  as $post_type ) {
-                            if (isset($_POST[$post_type]) ? $_POST[$post_type] : "off" == "on") {
-                                update_option("autopostToMastodon-post_types-$post_type", 'on');
-                            }
-                            else {
-                                update_option("autopostToMastodon-post_types-$post_type", 'off');
-                            }
-                        }
-
                         update_option('autopostToMastodon-content-warning', sanitize_textarea_field($content_warning));
 
                         $account = $client->verify_credentials($token);
@@ -273,20 +256,6 @@ class autopostToMastodon
         $content_warning = get_option('autopostToMastodon-content-warning', '');
         $autopost = get_option('autopostToMastodon-postOnStandard', 'on');
         $cats_as_tags = get_option('autopostToMastodon-catsAsTags', 'on');
-        $post_types = [];
-
-        // get all post types
-        $args = array(
-           'public'   => true,
-        );
-        $output = 'names';
-        $operator = 'and';
-        $wp_post_types = get_post_types( $args, $output, $operator );
-
-        // add form context data for post type options
-        foreach ( $wp_post_types  as $post_type ) {
-            $post_types[$post_type] = get_option("autopostToMastodon-post_types-$post_type", 'on');
-        }
 
         include 'form.tpl.php';
     }
@@ -452,33 +421,14 @@ class autopostToMastodon
      */
     public function add_metabox()
     {
-        $active_post_types = [];
-        // get all post types
-        $args = array(
-           'public'   => true,
+        add_meta_box(
+            'autopostToMastodon_metabox',
+            'Mastodon Autopost',
+            array($this, 'metabox'),
+            ['post', 'page'],
+            'side',
+            'high'
         );
-        $output = 'names';
-        $operator = 'and';
-        $post_types = get_post_types( $args, $output, $operator );
-
-        // add form context data for post type options
-        foreach ( $post_types  as $post_type ) {
-            if (get_option("autopostToMastodon-post_types-$post_type", 'on') == 'on') {
-                array_push($active_post_types, $post_type);
-            }
-        }
-
-        // empty array activates everywhere -> check
-        if (!empty($active_post_types)) {
-            add_meta_box(
-                'autopostToMastodon_metabox',
-                'Mastodon Autopost',
-                array($this, 'metabox'),
-                $active_post_types,
-                'side',
-                'high'
-            );
-        }
     }
 
     /**

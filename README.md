@@ -1,14 +1,6 @@
 ![Mastodon Autpost Wordpress Plugin banner](https://raw.githubusercontent.com/L1am0/mastodon_wordpress_autopost/master/graphics/banner.png)
 
 ---
-
-Help me to grow this project:
-
-[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://patreon.com/simonfrey)
-
-[![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/Mastodon-Auto-Share-Team/donate)
-
----
 # Mastodon Wordpress Autopost Plugin
 A  Wordpress plugin that automatically posts your new articles to Mastodon
 

@@ -108,7 +108,3 @@ msgstr "Zeichen"
 
 msgid "View Toot"
 msgstr "Zum Toot"
-
-msgid "Choose active post types"
-msgstr "Aktiviere für folgende Post-Types"
-
