@@ -1,0 +1,196 @@
+.wrap{
+	padding:10px;	
+	border-radius:10px;
+	min-height:100%;
+}
+.wrap h1, .wrap label, .wrap form  p{
+	color: #000;
+}
+
+.wrap .button{
+	color:#2b90d9 !important;
+	border-color:#2b90d9 !important;
+	box-shadow:none !important;
+	text-shadow:none !important;
+	font-weight:bold;
+}
+
+.wrap .button:hover{
+	background-color:transparent;
+}
+
+.wrap input, .wrap textarea{
+	background-color:transparent !important;
+	color:#000 !important;
+	border-color:#000;
+	border-radius:4px;
+}
+
+.wrap > form{
+	border:solid 1px #2b90d9;
+	padding:1%;
+	background-color:#FFF;
+}
+
+.spacer{
+	margin-top: 20px;
+}
+
+.account{
+	border: 1px solid #000;
+	padding: 15px;
+	border-radius:4px;
+	float:left;
+
+}
+
+.m-avatar{
+	float:left;
+	border-radius: 100px;
+	margin-right: 20px;
+	width: 60px;
+}
+
+.details{
+	float:left;
+}
+
+.details .link{
+	color:#000;
+	text-decoration: none;
+}
+
+.connected{
+	color: #2b90d9;
+	font-size: 16px;
+	font-weight:bold;
+	margin-bottom: 10px;
+}
+
+.disconnected{
+	color: #FF0000;
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+}
+
+.advanced_setting{
+	display:none;
+}
+
+
+.wrap .button:hover{
+	background-color:transparent;
+}
+
+.wrap input, .wrap textarea{
+	background-color:transparent !important;
+	color:#000 !important;
+	border-color:#000;
+	border-radius:4px;
+}
+.spacer{
+	margin-top: 20px;
+}
+
+.account{
+	border: 1px solid #000;
+	padding: 15px;
+	border-radius:4px;
+	float:left;
+
+}
+
+.m-avatar{
+	float:left;
+	border-radius: 100px;
+	margin-right: 20px;
+	width: 60px;
+}
+
+.details{
+	float:left;
+}
+
+.details .link{
+	color:#000;
+	text-decoration: none;
+}
+
+.connected{
+	color: #2b90d9;
+	font-size: 16px;
+	font-weight:bold;
+	margin-bottom: 10px;
+}
+
+.disconnected{
+	color: #FF0000;
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+}
+
+.advanced_setting{
+	display:none;
+}
+
+
+label{
+	display:inline-block;
+	vertical-align: bottom;
+	text-align:center;
+}
+
+.messageRadioButtons label{
+	padding:10px;
+	border:dashed 2px #000;
+	opacity:0.5;
+}
+
+.scopeRadioButtons label{
+	opacity:0.5;
+	margin-right:1em;
+}
+
+input[type="radio"]{
+	display:none;	
+}
+
+.github-icon{
+	margin-right: 10px;
+	text-decoration: none;
+	position: relative;
+}
+
+html > body .liberapay-btn{
+	margin-top: 3px;
+    position: absolute;
+}
+
+.github-icon{
+	margin-right: 10px;
+	text-decoration: none;
+	position: relative;
+}
+
+.modeIcon{
+	height:1em;
+}
+
+html > body .liberapay-btn{
+	margin-top: 3px;
+    position: absolute;
+}
+
+.tab-button{
+	text-align:center;
+	margin-bottom:-1px !important;
+	border-bottom:none !important;
+	border-radius:0 !important;
+}
+
+.tab-button.active{
+	background-color:#FFF !important;
+	margin-bottom:-0px !important;
+}
