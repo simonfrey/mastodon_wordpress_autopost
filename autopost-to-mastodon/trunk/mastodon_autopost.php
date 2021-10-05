@@ -542,13 +542,11 @@ class autopostToMastodon
         }
 
         $post_tags = get_the_tags($id);
-        if (sizeof($post_tags) > 0) {
-            if ($post_tags) {
-                foreach ($post_tags as $tag) {
-                    $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')) . ' ';
-                }
-                $post_tags_content = trim($post_tags_content);
+        if ($post_tags) {
+            foreach ($post_tags as $tag) {
+                $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')) . ' ';
             }
+            $post_tags_content = trim($post_tags_content);
         }
         $message_template = str_replace("[tags]", $post_tags_content, $message_template);
 
