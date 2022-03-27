@@ -1,3 +1,7 @@
+# SEARCHING FOR A NEW MAINTAINER
+
+---
+
 ![Mastodon Autpost Wordpress Plugin banner](https://raw.githubusercontent.com/L1am0/mastodon_wordpress_autopost/master/graphics/banner.png)
 
 ---
