@@ -516,6 +516,9 @@ class autopostToMastodon
     private function fixHashTag($tag)
     {
         $tag = html_entity_decode($tag, ENT_COMPAT, 'UTF-8');
+        if (preg_match('/\s/', $tag)) {
+           $tag = ucwords($tag);
+        }
         $tag = preg_replace('/[^[:alnum:]_]/', '', $tag);
         return '#' . $tag;
     }
