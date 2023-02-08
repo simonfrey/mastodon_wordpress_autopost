@@ -310,6 +310,25 @@ class autopostToMastodon
         $toot_on_mastodon_option = false;
         $cw_content = (string) get_option('autopostToMastodon-content-warning', '');
 
+        // check for cw-tags:
+        //  CW
+        //  CN
+        //  CW: $reason
+        //  CN: $reason
+        // are recognized and added to $cw_content
+        $post_tags = get_the_tags($id);
+        if ($post_tags) {
+            foreach ($post_tags as $tag) {
+                if(preg_match('/^(?:CW|CN)[: ].+/', $tag->name)) {
+                    $cw_content = $tag->name." ".$cw_content;
+                } else if($tag->name == "CN") {
+                    $cw_content = "CN (Content Notice) ".$cw_content;
+                } else if($tag->name == "CW") {
+                    $cw_content = "CW (Content Warning) ".$cw_content;
+                }
+            }
+        }
+
         $toot_on_mastodon_option = isset($_POST['toot_on_mastodon']);
 
         if ($toot_on_mastodon_option) {
