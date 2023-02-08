@@ -355,6 +355,10 @@ class autopostToMastodon
                     if ($thumb_url) {
 
                         $thumb_path = str_replace(get_site_url(), get_home_path(), $thumb_url);
+                        // read alt-text from thumbnail and use it as image description for mastodon
+                        $thumb = get_the_post_thumbnail($id);
+                        $thumb_alt = preg_replace('/^.*?alt="(.*?)".*$/', '$1', $thumb);
+
                         $attachment = $client->create_attachment($thumb_path);
 
                         if (is_object($attachment)) {
@@ -416,6 +420,10 @@ class autopostToMastodon
             $client = new Client($instance, $access_token);
 
             if ($thumb_url && $thumb_path) {
+
+                // read alt-text from thumbnail and use it as image description for mastodon
+                $thumb = get_the_post_thumbnail($post_id, 'medium_large');
+                $thumb_alt = preg_replace('/^.*?alt="(.*?)".*$/', '$1', $thumb);
 
                 $attachment = $client->create_attachment($thumb_path);
 
