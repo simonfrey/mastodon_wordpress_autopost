@@ -310,6 +310,25 @@ class autopostToMastodon
         $toot_on_mastodon_option = false;
         $cw_content = (string) get_option('autopostToMastodon-content-warning', '');
 
+        // check for cw-tags:
+        //  CW
+        //  CN
+        //  CW: $reason
+        //  CN: $reason
+        // are recognized and added to $cw_content
+        $post_tags = get_the_tags($id);
+        if ($post_tags) {
+            foreach ($post_tags as $tag) {
+                if(preg_match('/^(?:CW|CN)[: ].+/', $tag->name)) {
+                    $cw_content = $tag->name." ".$cw_content;
+                } else if($tag->name == "CN") {
+                    $cw_content = "CN (Content Notice) ".$cw_content;
+                } else if($tag->name == "CW") {
+                    $cw_content = "CW (Content Warning) ".$cw_content;
+                }
+            }
+        }
+
         $toot_on_mastodon_option = isset($_POST['toot_on_mastodon']);
 
         if ($toot_on_mastodon_option) {
@@ -355,6 +374,10 @@ class autopostToMastodon
                     if ($thumb_url) {
 
                         $thumb_path = str_replace(get_site_url(), get_home_path(), $thumb_url);
+                        // read alt-text from thumbnail and use it as image description for mastodon
+                        $thumb = get_the_post_thumbnail($id);
+                        $thumb_alt = preg_replace('/^.*?alt="(.*?)".*$/', '$1', $thumb);
+
                         $attachment = $client->create_attachment($thumb_path);
 
                         if (is_object($attachment)) {
@@ -416,6 +439,10 @@ class autopostToMastodon
             $client = new Client($instance, $access_token);
 
             if ($thumb_url && $thumb_path) {
+
+                // read alt-text from thumbnail and use it as image description for mastodon
+                $thumb = get_the_post_thumbnail($post_id, 'medium_large');
+                $thumb_alt = preg_replace('/^.*?alt="(.*?)".*$/', '$1', $thumb);
 
                 $attachment = $client->create_attachment($thumb_path);
 

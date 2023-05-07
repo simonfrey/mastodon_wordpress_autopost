@@ -85,7 +85,7 @@ class Client
 		return $response;
 	}
 
-	public function create_attachment($media_path) {
+	public function create_attachment($media_path, $description="") {
 
 		$filename =basename($media_path);
 		$mime_type = mime_content_type($media_path);
@@ -101,8 +101,17 @@ class Client
 
 		$data = '--'.$boundary.$nl;
 		$data .= 'Content-Disposition: form-data; name="file"; filename="'.$filename.'"'.$nl;
-		$data .= 'Content-Type: '. $mime_type .$nl.$nl;
+		$data .= 'Content-Type: '. $mime_type .$nl;
+		$data .= $nl;
 		$data .= file_get_contents($media_path) .$nl;
+		
+		if($description) {
+		    $data .= '--'.$boundary.$nl;
+		    $data .= 'Content-Disposition: form-data; name="description"'.$nl;
+		    $data .= $nl;
+		    $data .= $description.$nl;
+		}
+		
 		$data .= '--'.$boundary.'--';
 
 		$response = $this->_post('/api/v1/media', $data, $headers);
