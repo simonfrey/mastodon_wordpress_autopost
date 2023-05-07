@@ -540,6 +540,16 @@ class autopostToMastodon
         wp_send_json($return);
     }
 
+    private function fixHashTag($tag)
+    {
+        $tag = html_entity_decode($tag, ENT_COMPAT, 'UTF-8');
+        if (preg_match('/\s/', $tag)) {
+           $tag = ucwords($tag);
+        }
+        $tag = preg_replace('/[^[:alnum:]_]/', '', $tag);
+        return '#' . $tag;
+    }
+        
     private function getTootFromTemplate($id)
     {
 
@@ -563,7 +573,7 @@ class autopostToMastodon
             $post_cats = get_the_category($id);
             if (sizeof($post_cats) > 0 && $post_cats) {
                 foreach ($post_cats as $cat) {
-                    $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($cat->name, ENT_COMPAT, 'UTF-8')) . ' ';
+                    $post_tags_content = $post_tags_content . $this->fixHashTag($cat->name) . ' ';
                 }
             }
         }
@@ -571,7 +581,7 @@ class autopostToMastodon
         $post_tags = get_the_tags($id);
         if ($post_tags) {
             foreach ($post_tags as $tag) {
-                $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')) . ' ';
+                $post_tags_content = $post_tags_content . $this->fixHashTag($tag->name) . ' ';
             }
             $post_tags_content = trim($post_tags_content);
         }
