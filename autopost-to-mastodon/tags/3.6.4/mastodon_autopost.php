@@ -3,7 +3,7 @@
  * Plugin Name: Mastodon Autopost
  * Plugin URI: https://github.com/simonfrey/mastodon_wordpress_autopost
  * Description: A Wordpress Plugin that automatically posts your new articles to Mastodon
- * Version: 3.7
+ * Version: 3.6.4
  * Author: L1am0
  * Author URI: https://www.simon-frey.com
  * License: GPL2
@@ -173,12 +173,12 @@ class autopostToMastodon
                 $redirect_url = get_admin_url();
                 $auth_url = $client->register_app($redirect_url);
 
-                if (strpos($auth_url, 'ERROR') === 0) {
+                if ($auth_url == "ERROR") {
                     update_option(
                         'autopostToMastodon-notice',
                         serialize(
                             array(
-                                'message' => '<strong>Mastodon Autopost</strong> : ' . __('The given instance url belongs to no valid mastodon instance !', 'autopost-to-mastodon'). " ".$auth_url,
+                                'message' => '<strong>Mastodon Autopost</strong> : ' . __('The given instance url belongs to no valid mastodon instance !', 'autopost-to-mastodon'),
                                 'class' => 'error',
                             )
                         )
@@ -313,25 +313,6 @@ class autopostToMastodon
         $toot_on_mastodon_option = false;
         $cw_content = (string) get_option('autopostToMastodon-content-warning', '');
 
-        // check for cw-tags:
-        //  CW
-        //  CN
-        //  CW: $reason
-        //  CN: $reason
-        // are recognized and added to $cw_content
-        $post_tags = get_the_tags($id);
-        if ($post_tags) {
-            foreach ($post_tags as $tag) {
-                if(preg_match('/^(?:CW|CN)[: ].+/', $tag->name)) {
-                    $cw_content = $tag->name." ".$cw_content;
-                } else if($tag->name == "CN") {
-                    $cw_content = "CN (Content Notice) ".$cw_content;
-                } else if($tag->name == "CW") {
-                    $cw_content = "CW (Content Warning) ".$cw_content;
-                }
-            }
-        }
-
         $toot_on_mastodon_option = isset($_POST['toot_on_mastodon']);
 
         if ($toot_on_mastodon_option) {
@@ -383,10 +364,6 @@ class autopostToMastodon
                     if ($thumb_url) {
 
                         $thumb_path = str_replace(get_site_url(), get_home_path(), $thumb_url);
-                        // read alt-text from thumbnail and use it as image description for mastodon
-                        $thumb = get_the_post_thumbnail($id);
-                        $thumb_alt = preg_replace('/^.*?alt="(.*?)".*$/', '$1', $thumb);
-
                         $attachment = $client->create_attachment($thumb_path);
 
                         if (is_object($attachment)) {
@@ -448,10 +425,6 @@ class autopostToMastodon
             $client = new Client($instance, $access_token);
 
             if ($thumb_url && $thumb_path) {
-
-                // read alt-text from thumbnail and use it as image description for mastodon
-                $thumb = get_the_post_thumbnail($post_id, 'medium_large');
-                $thumb_alt = preg_replace('/^.*?alt="(.*?)".*$/', '$1', $thumb);
 
                 $attachment = $client->create_attachment($thumb_path);
 
@@ -549,16 +522,6 @@ class autopostToMastodon
         wp_send_json($return);
     }
 
-    private function fixHashTag($tag)
-    {
-        $tag = html_entity_decode($tag, ENT_COMPAT, 'UTF-8');
-        if (preg_match('/\s/', $tag)) {
-           $tag = ucwords($tag);
-        }
-        $tag = preg_replace('/[^[:alnum:]_]/', '', $tag);
-        return '#' . $tag;
-    }
-        
     private function getTootFromTemplate($id)
     {
 
@@ -582,7 +545,7 @@ class autopostToMastodon
             $post_cats = get_the_category($id);
             if (sizeof($post_cats) > 0 && $post_cats) {
                 foreach ($post_cats as $cat) {
-                    $post_tags_content = $post_tags_content . $this->fixHashTag($cat->name) . ' ';
+                    $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($cat->name, ENT_COMPAT, 'UTF-8')) . ' ';
                 }
             }
         }
@@ -590,7 +553,7 @@ class autopostToMastodon
         $post_tags = get_the_tags($id);
         if ($post_tags) {
             foreach ($post_tags as $tag) {
-                $post_tags_content = $post_tags_content . $this->fixHashTag($tag->name) . ' ';
+                $post_tags_content = $post_tags_content . '#' . preg_replace('/\s+/', '', html_entity_decode($tag->name, ENT_COMPAT, 'UTF-8')) . ' ';
             }
             $post_tags_content = trim($post_tags_content);
         }
@@ -631,7 +594,7 @@ class autopostToMastodon
 
         $client = new Client($instance, $access_token);
         //TODO: Add propper message
-        $message = __("This is my first post with Mastodon Autopost plugin for wordpress", 'autopost-to-mastodon') . " - https://wordpress.org/plugins/autopost-to-mastodon/";
+        $message = __("This is my first post with Mastodon Autopost #plugin for #wordpress", 'autopost-to-mastodon') . "by @simon@indiehackers.social - https://wordpress.org/plugins/autopost-to-mastodon/";
         $media = null;
         $toot = $client->postStatus($message, $mode, $media);
 

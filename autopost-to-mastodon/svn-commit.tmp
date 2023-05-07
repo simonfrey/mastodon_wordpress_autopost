@@ -1,0 +1,26 @@
+
+--This line, and those below, will be ignored--
+
+A  + tags/3.1
+A  + tags/3.1/client.php
+A  + tags/3.1/form.tpl.php
+A  + tags/3.1/img
+A  + tags/3.1/instanceList.php
+R  + tags/3.1/js
+R  + tags/3.1/languages
+R  + tags/3.1/mastodon_autopost.php
+R  + tags/3.1/readme.txt
+A  + tags/3.1/style.css
+A  + tags/3.1/uninstall.php
+M    trunk/mastodon_autopost.php
+M    trunk/readme.txt
+D    tags/3.1/MastodonOAuthPHP
+D    tags/3.1/ajax_handler.php
+D    tags/3.1/css
+D    tags/3.1/enque_scripts.php
+D    tags/3.1/generalNotices.php
+D    tags/3.1/internationalization.php
+D    tags/3.1/license.txt
+D    tags/3.1/post_meta_box.php
+D    tags/3.1/publish_post_notification.php
+D    tags/3.1/settings_page.php

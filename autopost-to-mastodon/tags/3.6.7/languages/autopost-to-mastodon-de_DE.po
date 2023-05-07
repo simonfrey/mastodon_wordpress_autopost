@@ -1,0 +1,114 @@
+msgid "Mastodon Autopost Configuration"
+msgstr "Mastodon Autopost Konfiguration"
+
+msgid "Simple configuration"
+msgstr "Einfache Konfiguration"
+
+msgid "Advanced configuration"
+msgstr "Erweiterte Konfiguration"
+
+msgid "Instance"
+msgstr "Instanz"
+
+msgid "Connected as"
+msgstr "Verbunden als"
+
+msgid "Connect to Mastodon"
+msgstr "Mit Mastodon verbinden"
+
+msgid "Disconnect"
+msgstr "Trennen"
+
+msgid "Send test toot"
+msgstr "Test Toot senden"
+
+msgid "Disconnected"
+msgstr "Getrennt"
+
+msgid "Default Content Warning"
+msgstr "Standart Content Warnung"
+
+msgid "and"
+msgstr "und"
+
+msgid "You can use these metas in the message"
+msgstr "Du kannst folgende Metas in der Nachricht verwenden"
+
+msgid "Save configuration"
+msgstr "Konfiguration Speichern"
+
+msgid "Autopost new posts"
+msgstr "Neue Posts automatisch posten"
+
+msgid "Authentification, please wait"
+msgstr "Bitte kurz warten"
+
+msgid "Toot mode"
+msgstr "Toot Modus"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Toot size"
+msgstr "Toot Länge"
+
+msgid "Can't log you in."
+msgstr "Login hat nicht funktioniert."
+
+msgid "Please login to your mastodon account!"
+msgstr "Bitte log dich in deinen Mastodon Account ein!"
+
+msgid "Go to Mastodon Autopost Settings"
+msgstr "Zu den Mastodon Autopost Einstellungen gehen"
+
+msgid "Instance message"
+msgstr "Instanz Nachricht"
+
+msgid "The given instance url belongs to no valid mastodon instance !"
+msgstr "Die eingegebene Url ist keine valide Mastodon Instanz !"
+
+msgid "Thank you to set your Mastodon instance before connect !"
+msgstr "Danke für das einstellen der Mastodon Instanz !"
+
+msgid "Redirect to "
+msgstr "Weiterleiten zu "
+
+msgid "Configuration successfully saved !"
+msgstr "Konfiguration wurde erfolgreich gespeichert!"
+
+msgid "Toot saved for schedule !"
+msgstr "Toot für die Zukunft eingestellt !"
+
+msgid "This is my first post with Mastodon Autopost for Wordpress"
+msgstr "Das ist mein erster Post mit Mastodon Autopost für Wordpress"
+
+msgid "Sorry, can't send toot !"
+msgstr "Entschuldigung, Toot kann nicht gesendet werden !"
+
+msgid "Toot successfully sent !"
+msgstr "Toot erfolgreich gesendet !"
+
+msgid "Toot on Mastodon"
+msgstr "Autopost auf Mastodon"
+
+msgid "Public"
+msgstr "Öffentlich"
+
+msgid "Unlisted"
+msgstr "Nicht gelistet"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Direct"
+msgstr "Direkt"
+
+msgid "characters"
+msgstr "Zeichen"
+
+msgid "View Toot"
+msgstr "Zum Toot"
+
+msgid "Choose active post types"
+msgstr "Aktiviere für folgende Post-Types"
+
