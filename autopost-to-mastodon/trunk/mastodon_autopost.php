@@ -598,16 +598,14 @@ class autopostToMastodon
 
         //Replace excerpt
         //Replace with the excerpt of the post
-        $post_optional_excerpt = $post->post_excerpt;
-        if (strlen($post_optional_excerpt) > 0) {
-            $post_content_long = $post_optional_excerpt;
+        if (has_excerpt($id)) {
+            $post_content_long = apply_filters('the_content', $post->post_excerpt);
         } else {
-            $post_content_long = $post->post_content;
+            $post_content_long = apply_filters('the_content', $post->post_content);
         }
         if ($wp_version[0] == "5") {
             $post_content_long = excerpt_remove_blocks($post_content_long);
         }
-        $post_content_long = strip_shortcodes($post_content_long);
         $post_content_long = html_entity_decode($post_content_long, ENT_COMPAT, 'UTF-8');
         $post_content_long = wp_strip_all_tags($post_content_long);
         //$post_content_long = str_replace("...", "",$post_content_long);
